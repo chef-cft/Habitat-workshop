@@ -1,0 +1,131 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Cloudformation script to setup the Habitat Lab environment'
+Parameters:
+  KeyName:
+    Description: Name of an existing EC2 key pair for ssh access
+    Type: AWS::EC2::KeyPair::KeyName
+    ConstraintDescription: Must be the name of an existing EC2 key pair
+Resources:
+  LinuxWorkstation:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.medium
+      SecurityGroups: [!Ref 'WorkstationSG']
+      KeyName: !Ref 'KeyName'
+      ImageId: 'ami-03da490f2f0b9e2b9'
+      Tags:
+      - Key: Name
+        Value: 'Workstation'
+      - Key: X-Dept
+        Value: 'SA'
+      - Key: X-Application
+        Value: 'Habitat'
+      - Key: X-Contact
+        Value: "donald.slanec@progress.com"
+      - Key: X-Production
+        Value: "True"
+      - Key: X-Project
+        Value: "Hab"
+  WorkstationSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: SG for Linux WorkstationSG
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 3000
+          ToPort: 3000
+          CidrIp: 0.0.0.0/0
+  Automate:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: m4.xlarge
+      SecurityGroups: [!Ref 'AutomateSG']
+      KeyName: !Ref 'KeyName'
+      ImageId: 'ami-03da490f2f0b9e2b9'
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 80
+      Tags:
+      - Key: Name
+        Value: 'Automate'
+      - Key: X-Dept
+        Value: 'SA'
+      - Key: X-Application
+        Value: 'Habitat'
+      - Key: X-Contact
+        Value: "donald.slanec@progress.com"
+      - Key: X-Production
+        Value: "True"
+      - Key: X-Project
+        Value: "Hab"
+  AutomateSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: SG for Linux WorkstationSG
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+  HabClient1:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.medium
+      SecurityGroups: [!Ref 'HabSG']
+      KeyName: !Ref 'KeyName'
+      ImageId: 'ami-03da490f2f0b9e2b9'
+      Tags:
+      - Key: Name
+        Value: 'Workstation'
+      - Key: X-Dept
+        Value: 'SA'
+      - Key: X-Application
+        Value: 'Habitat'
+      - Key: X-Contact
+        Value: "donald.slanec@progress.com"
+      - Key: X-Production
+        Value: "True"
+      - Key: X-Project
+        Value: "Hab"
+  HabSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: SG for Linux WorkstationSG
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 9632
+          ToPort: 9632
+          CidrIp: 0.0.0.0/0
+  HabClient2:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.medium
+      SecurityGroups: [!Ref 'HabSG']
+      KeyName: !Ref 'KeyName'
+      ImageId: 'ami-03da490f2f0b9e2b9'
+      Tags:
+      - Key: Name
+        Value: 'Workstation'
+      - Key: X-Dept
+        Value: 'SA'
+      - Key: X-Application
+        Value: 'Habitat'
+      - Key: X-Contact
+        Value: "donald.slanec@progress.com"
+      - Key: X-Production
+        Value: "True"
+      - Key: X-Project
+        Value: "Hab"
