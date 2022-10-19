@@ -76,6 +76,10 @@ Resources:
           FromPort: 443
           ToPort: 443
           CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 4222
+          ToPort: 4222
+          CidrIp: 0.0.0.0/0
   HabClient1:
     Type: AWS::EC2::Instance
     Properties:
@@ -110,6 +114,66 @@ Resources:
           ToPort: 9632
           CidrIp: 0.0.0.0/0
   HabClient2:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.medium
+      SecurityGroups: [!Ref 'HabSG']
+      KeyName: !Ref 'KeyName'
+      ImageId: 'ami-03da490f2f0b9e2b9'
+      Tags:
+      - Key: Name
+        Value: 'Workstation'
+      - Key: X-Dept
+        Value: 'SA'
+      - Key: X-Application
+        Value: 'Habitat'
+      - Key: X-Contact
+        Value: "donald.slanec@progress.com"
+      - Key: X-Production
+        Value: "True"
+      - Key: X-Project
+        Value: "Hab"
+  Store2Device1:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.medium
+      SecurityGroups: [!Ref 'HabSG']
+      KeyName: !Ref 'KeyName'
+      ImageId: 'ami-03da490f2f0b9e2b9'
+      Tags:
+      - Key: Name
+        Value: 'Workstation'
+      - Key: X-Dept
+        Value: 'SA'
+      - Key: X-Application
+        Value: 'Habitat'
+      - Key: X-Contact
+        Value: "donald.slanec@progress.com"
+      - Key: X-Production
+        Value: "True"
+      - Key: X-Project
+        Value: "Hab"
+  Store3Device1:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.medium
+      SecurityGroups: [!Ref 'HabSG']
+      KeyName: !Ref 'KeyName'
+      ImageId: 'ami-03da490f2f0b9e2b9'
+      Tags:
+      - Key: Name
+        Value: 'Workstation'
+      - Key: X-Dept
+        Value: 'SA'
+      - Key: X-Application
+        Value: 'Habitat'
+      - Key: X-Contact
+        Value: "donald.slanec@progress.com"
+      - Key: X-Production
+        Value: "True"
+      - Key: X-Project
+        Value: "Hab"
+  Store3Device2:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t3.medium
