@@ -141,7 +141,7 @@ Resources:
     Properties:
       InstanceType: t3.medium
       KeyName: !Ref 'KeyName'
-      ImageId: 'ami-03da490f2f0b9e2b9'
+      ImageId: 'ami-069134ee62b315cea'
       NetworkInterfaces:
         - GroupSet:
             - !Ref 'WorkstationSG'
@@ -150,13 +150,15 @@ Resources:
           DeviceIndex: "0"
           DeleteOnTermination: true
           SubnetId: !Ref 'PrimarySubnet'
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 80
       UserData:
         Fn::Base64: |
           #!/bin/bash -xe
           exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
           hostname "workstation"
-          echo "export HAB_CTL_SECRET=/Z8aLDvtTxLySDdVfFS8uKFZM5TsJnaxO/9F+PfXbAzKnWxZB9hbeYYlVnGfwxj/Sd7vKWs4YIRFwhCtLdq1qg==" >> /home/ubuntu/.profile
-          echo "export HAB_Origin=edge" >> /home/ubuntu/.profile
           cat <<EOT>> /etc/systemd/system/vscode.service
           [Unit]
           Description=VSCode Server
@@ -167,8 +169,6 @@ Resources:
           [Install]
           WantedBy=default.target
           EOT
-          wget https://github.com/gitpod-io/openvscode-server/releases/download/openvscode-server-v1.72.2/openvscode-server-v1.72.2-linux-x64.tar.gz -P /home/ubuntu
-          tar xvzf /home/ubuntu/openvscode-server-v1.72.2-linux-x64.tar.gz
           systemctl start vscode
       Tags:
       - Key: Name
@@ -188,7 +188,7 @@ Resources:
     Properties:
       InstanceType: m4.xlarge
       KeyName: !Ref 'KeyName'
-      ImageId: 'ami-03ba50b92fc254620'
+      ImageId: 'ami-05b4d5ba69dc7bfd4'
       NetworkInterfaces:
         - GroupSet:
             - !Ref 'AutomateSG'
@@ -206,14 +206,12 @@ Resources:
           #!/bin/bash -xe
           exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
           PUBLIC_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
-          cat <<EOT>> /home/ubuntu/address.toml
+          cat <<EOT>> /home/ubuntu/automatedn.toml
           [global]
           [global.v1]
           EOT
-          echo "fqdn=$PUBLIC_IP" >> /home/ubuntu/address.toml
-          chef-automate config patch /home/ubuntu/address.toml
-          chef-automate iam admin-access restore "habworkshop"
-
+          echo "fqdn=\"$PUBLIC_IP\"" >> /home/ubuntu/automatedn.toml
+          chef-automate config patch /home/ubuntu/automatedn.toml
       Tags:
       - Key: Name
         Value: 'Automate'
@@ -232,7 +230,7 @@ Resources:
     Properties:
       InstanceType: t3.micro
       KeyName: !Ref 'KeyName'
-      ImageId: 'ami-03da490f2f0b9e2b9'
+      ImageId: 'ami-03e1bc7a33d356537'
       NetworkInterfaces:
         - GroupSet:
             - !Ref 'HabSG'
@@ -248,13 +246,11 @@ Resources:
                 #!/bin/bash -xe
                 exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
                 hostname "device1"
-                curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash
-                hab license accept
                 cat <<EOT>> /etc/systemd/system/hab.service
                 [Unit]
                 Description=The Chef Habitat Supervisor
                 [Service]
-                ExecStart=/bin/hab sup run --listen-ctl=0.0.0.0:9632 --event-stream-application="POS" --event-stream-environment="production" --event-stream-site="Store 1" --event-stream-url="${automate}:4222" --event-stream-token="LqktmByrx-5rH_FaIG7zS6icxMk="
+                ExecStart=/bin/hab sup run --listen-ctl=0.0.0.0:9632 --event-stream-application="POS" --event-stream-environment="production" --event-stream-site="Store 1" --event-stream-url="${automate}:4222" --event-stream-token="E2bCL2WgfBqyo_lw8M-2OWm8WT0="
                 [Install]
                 WantedBy=default.target
                 EOT
