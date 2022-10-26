@@ -1,0 +1,4 @@
+{
+    "color": "{{cfg.color}}",
+    "welcome": "{{cfg.header}}"
+}
