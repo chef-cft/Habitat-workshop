@@ -7,6 +7,12 @@ worker_connections = 512
 listen = 80
 index = "index.html"
 
+
+[[service]]
+name = "80"
+code = "80"
+port = "8080"
+
 [[service]]
 name = "00-workshop-instructions"
 code = "00"

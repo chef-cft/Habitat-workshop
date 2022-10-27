@@ -2,8 +2,16 @@
 
 #rm cloud-formation.yml
 #rm README.md
+#rm -rf .git
+#rm .git
 
 chmod +x purge.sh
+chmod +x env.sh
+
+chmod +x shim/build-all.sh
+chmod +x shim/load-all.sh
+chmod +x shim/unload-all.sh
+chmod +x shim/publish-all.sh
 
 chmod +x workshop/build-all.sh
 chmod +x workshop/load-all.sh

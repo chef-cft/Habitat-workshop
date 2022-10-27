@@ -15,3 +15,4 @@ rm -rf workshop/07-host-compliance/results
 rm -rf workshop/08-host-configuration/results
 rm -rf workshop/09-app-compliance/results
 rm -rf workshop/10-jenkins/results
+rm -rf workshop/10-jenkins/node_modules
