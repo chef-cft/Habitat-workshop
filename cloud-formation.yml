@@ -321,7 +321,7 @@ Resources:
                 [Unit]
                 Description=The Chef Habitat Supervisor
                 [Service]
-                ExecStart=/bin/hab sup run --listen-ctl=0.0.0.0:9632 --event-stream-application="POS" --event-stream-environment="production" --event-stream-site="Store 1" --event-stream-url="${automate}:4222" --event-stream-token="E2bCL2WgfBqyo_lw8M-2OWm8WT0="
+                ExecStart=/bin/hab sup run --listen-ctl=0.0.0.0:9632 --event-stream-application="POS" --event-stream-environment="production" --event-stream-site="Store 1" --event-stream-url="${automate}:4222" --event-stream-token="E2bCL2WgfBqyo_lw8M-2OWm8WT0= --permanent-peer --peer=172.31.54.12 --peer=172.31.54.21"
                 [Install]
                 WantedBy=default.target
                 EOT
@@ -354,6 +354,23 @@ Resources:
           DeviceIndex: "0"
           DeleteOnTermination: true
           SubnetId: !Ref 'PrimarySubnet'
+      UserData:
+        Fn::Base64:
+          Fn::Sub:
+            - |
+                #!/bin/bash -xe
+                exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+                hostname "device2"
+                cat <<EOT>> /etc/systemd/system/hab.service
+                [Unit]
+                Description=The Chef Habitat Supervisor
+                [Service]
+                ExecStart=/bin/hab sup run --listen-ctl=0.0.0.0:9632 --event-stream-application="POS" --event-stream-environment="production" --event-stream-site="Store 1" --event-stream-url="${automate}:4222" --event-stream-token="E2bCL2WgfBqyo_lw8M-2OWm8WT0= --permanent-peer --peer=172.31.54.11 --peer=172.31.54.21"
+                [Install]
+                WantedBy=default.target
+                EOT
+                systemctl start hab
+            - automate: !GetAtt Automate.PrivateDnsName
       Tags:
       - Key: Name
         Value: 'Store 1 Device 2'
@@ -381,6 +398,23 @@ Resources:
           DeviceIndex: "0"
           DeleteOnTermination: true
           SubnetId: !Ref 'PrimarySubnet'
+      UserData:
+        Fn::Base64:
+          Fn::Sub:
+            - |
+                #!/bin/bash -xe
+                exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+                hostname "device1"
+                cat <<EOT>> /etc/systemd/system/hab.service
+                [Unit]
+                Description=The Chef Habitat Supervisor
+                [Service]
+                ExecStart=/bin/hab sup run --listen-ctl=0.0.0.0:9632 --event-stream-application="POS" --event-stream-environment="production" --event-stream-site="Store 1" --event-stream-url="${automate}:4222" --event-stream-token="E2bCL2WgfBqyo_lw8M-2OWm8WT0= --permanent-peer --peer=172.31.54.11 --peer=172.31.54.12"
+                [Install]
+                WantedBy=default.target
+                EOT
+                systemctl start hab
+            - automate: !GetAtt Automate.PrivateDnsName
       Tags:
       - Key: Name
         Value: 'Store 2 Device 1'
@@ -408,6 +442,23 @@ Resources:
           DeviceIndex: "0"
           DeleteOnTermination: true
           SubnetId: !Ref 'PrimarySubnet'
+      UserData:
+        Fn::Base64:
+          Fn::Sub:
+            - |
+                #!/bin/bash -xe
+                exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+                hostname "device1"
+                cat <<EOT>> /etc/systemd/system/hab.service
+                [Unit]
+                Description=The Chef Habitat Supervisor
+                [Service]
+                ExecStart=/bin/hab sup run --listen-ctl=0.0.0.0:9632 --event-stream-application="POS" --event-stream-environment="production" --event-stream-site="Store 1" --event-stream-url="${automate}:4222" --event-stream-token="E2bCL2WgfBqyo_lw8M-2OWm8WT0="
+                [Install]
+                WantedBy=default.target
+                EOT
+                systemctl start hab
+            - automate: !GetAtt Automate.PrivateDnsName
       Tags:
       - Key: Name
         Value: 'Store 3 Device 1'
@@ -435,6 +486,23 @@ Resources:
           DeviceIndex: "0"
           DeleteOnTermination: true
           SubnetId: !Ref 'PrimarySubnet'
+      UserData:
+        Fn::Base64:
+          Fn::Sub:
+            - |
+                #!/bin/bash -xe
+                exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+                hostname "device2"
+                cat <<EOT>> /etc/systemd/system/hab.service
+                [Unit]
+                Description=The Chef Habitat Supervisor
+                [Service]
+                ExecStart=/bin/hab sup run --listen-ctl=0.0.0.0:9632 --event-stream-application="POS" --event-stream-environment="production" --event-stream-site="Store 1" --event-stream-url="${automate}:4222" --event-stream-token="E2bCL2WgfBqyo_lw8M-2OWm8WT0="
+                [Install]
+                WantedBy=default.target
+                EOT
+                systemctl start hab
+            - automate: !GetAtt Automate.PrivateDnsName
       Tags:
       - Key: Name
         Value: 'Store 3 Device 2'
