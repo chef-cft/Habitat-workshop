@@ -345,7 +345,7 @@ Resources:
     Properties:
       InstanceType: t3.micro
       KeyName: !Ref 'KeyName'
-      ImageId: 'ami-03da490f2f0b9e2b9'
+      ImageId: 'ami-03e1bc7a33d356537'
       NetworkInterfaces:
         - GroupSet:
             - !Ref 'HabSG'
@@ -389,7 +389,7 @@ Resources:
     Properties:
       InstanceType: t3.micro
       KeyName: !Ref 'KeyName'
-      ImageId: 'ami-03da490f2f0b9e2b9'
+      ImageId: 'ami-03e1bc7a33d356537'
       NetworkInterfaces:
         - GroupSet:
             - !Ref 'HabSG'
@@ -433,7 +433,7 @@ Resources:
     Properties:
       InstanceType: t3.micro
       KeyName: !Ref 'KeyName'
-      ImageId: 'ami-03da490f2f0b9e2b9'
+      ImageId: 'ami-03e1bc7a33d356537'
       NetworkInterfaces:
         - GroupSet:
             - !Ref 'HabSG'
@@ -477,7 +477,7 @@ Resources:
     Properties:
       InstanceType: t3.micro
       KeyName: !Ref 'KeyName'
-      ImageId: 'ami-03da490f2f0b9e2b9'
+      ImageId: 'ami-03e1bc7a33d356537'
       NetworkInterfaces:
         - GroupSet:
             - !Ref 'HabSG'
