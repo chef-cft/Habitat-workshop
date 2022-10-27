@@ -3,7 +3,9 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"strings"
 	"os"
+	"os/exec"
 )
 
 func main() {
@@ -15,7 +17,13 @@ func main() {
 
 	contents := `<html>
 	<body>
-		Welcome to Habitat
+		<h1>Welcome to Habitat</h1>
+
+		<div>
+			<pre>
+<!--SERVICES-->
+			<pre>
+		</div>
 	</body>
 </html>`;
 
@@ -29,11 +37,20 @@ func main() {
 
 	}
 
-
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { 
-		w.Write([]byte(contents))
+		body := strings.Replace(contents, "<!--SERVICES-->", services(), -1);
+		w.Write([]byte(body))
 	});
 
 	http.ListenAndServe(":" + port, nil)
+}
 
+func services() string {
+	out, err := exec.Command("hab", "svc", "status").Output()
+
+	if err != nil {
+		return ""
+	}
+	
+	return string(out);
 }
