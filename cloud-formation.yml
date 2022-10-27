@@ -178,7 +178,7 @@ Resources:
     Properties:
       InstanceType: m4.xlarge
       KeyName: !Ref 'KeyName'
-      ImageId: 'ami-0630dfd681abae225'
+      ImageId: 'ami-081333ee8e86fa321'
       NetworkInterfaces:
         - GroupSet:
             - !Ref 'AutomateSG'
