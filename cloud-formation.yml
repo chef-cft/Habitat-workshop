@@ -141,7 +141,7 @@ Resources:
     Properties:
       InstanceType: t3.medium
       KeyName: !Ref 'KeyName'
-      ImageId: 'ami-069134ee62b315cea'
+      ImageId: 'ami-0269fb6a157cc9c9a'
       NetworkInterfaces:
         - GroupSet:
             - !Ref 'WorkstationSG'
@@ -159,16 +159,6 @@ Resources:
           #!/bin/bash -xe
           exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
           hostname "workstation"
-          cat <<EOT>> /etc/systemd/system/vscode.service
-          [Unit]
-          Description=VSCode Server
-          [Service]
-          User=ubuntu
-          Group=ubuntu
-          ExecStart= /home/ubuntu/openvscode-server-v1.72.2-linux-x64/bin/openvscode-server --connection-token "f4e1d044-f420-4342-af66-f3ca098e9c46" --host 0.0.0.0
-          [Install]
-          WantedBy=default.target
-          EOT
           systemctl start vscode
       Tags:
       - Key: Name
@@ -188,7 +178,7 @@ Resources:
     Properties:
       InstanceType: m4.xlarge
       KeyName: !Ref 'KeyName'
-      ImageId: 'ami-05b4d5ba69dc7bfd4'
+      ImageId: 'ami-0630dfd681abae225'
       NetworkInterfaces:
         - GroupSet:
             - !Ref 'AutomateSG'
@@ -215,6 +205,87 @@ Resources:
       Tags:
       - Key: Name
         Value: 'Automate'
+      - Key: X-Dept
+        Value: 'SA'
+      - Key: X-Application
+        Value: 'Habitat'
+      - Key: X-Contact
+        Value: "donald.slanec@progress.com"
+      - Key: X-Production
+        Value: "True"
+      - Key: X-Project
+        Value: "Hab"
+  SecondBuilder:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.medium
+      KeyName: !Ref 'KeyName'
+      ImageId: 'ami-0c4320ba0b11ff018'
+      NetworkInterfaces:
+        - GroupSet:
+            - !Ref 'AutomateSG'
+          AssociatePublicIpAddress: true
+          PrivateIpAddress: 172.31.54.7
+          DeviceIndex: "0"
+          DeleteOnTermination: true
+          SubnetId: !Ref 'PrimarySubnet'
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 80
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash -xe
+          exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+          PUBLIC_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+          cat <<EOT>> /home/ubuntu/automatedn.toml
+          [global]
+          [global.v1]
+          EOT
+          echo "fqdn=\"$PUBLIC_IP\"" >> /home/ubuntu/automatedn.toml
+          chef-automate config patch /home/ubuntu/automatedn.toml
+      Tags:
+      - Key: Name
+        Value: 'Workshop 2nd Builder'
+      - Key: X-Dept
+        Value: 'SA'
+      - Key: X-Application
+        Value: 'Habitat'
+      - Key: X-Contact
+        Value: "donald.slanec@progress.com"
+      - Key: X-Production
+        Value: "True"
+      - Key: X-Project
+        Value: "Hab"
+  Jenkins:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.medium
+      KeyName: !Ref 'KeyName'
+      ImageId: 'ami-0f81f3e3c44572175'
+      NetworkInterfaces:
+        - GroupSet:
+            - !Ref 'JenkinsSG'
+          AssociatePublicIpAddress: true
+          PrivateIpAddress: 172.31.54.8
+          DeviceIndex: "0"
+          DeleteOnTermination: true
+          SubnetId: !Ref 'PrimarySubnet'
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 80
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash -xe
+          exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+          PUBLIC_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+          sed -i "s/172.31.54.8/$PUBLIC_IP/" /etc/gitea/app.ini
+          systemctl stop gitea
+          systemctl start gitea
+      Tags:
+      - Key: Name
+        Value: 'Workshop Jenkins'
       - Key: X-Dept
         Value: 'SA'
       - Key: X-Application
@@ -408,6 +479,10 @@ Resources:
           ToPort: 443
           CidrIp: 0.0.0.0/0
         - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
           FromPort: 4222
           ToPort: 4222
           CidrIp: 0.0.0.0/0
@@ -424,6 +499,24 @@ Resources:
         - IpProtocol: tcp
           FromPort: 9632
           ToPort: 9632
+          CidrIp: 0.0.0.0/0
+  JenkinsSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: SG for Jenkins
+      VpcId: !Ref 'VPC'
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8080
+          ToPort: 8080
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 3000
+          ToPort: 3000
           CidrIp: 0.0.0.0/0
 
 
