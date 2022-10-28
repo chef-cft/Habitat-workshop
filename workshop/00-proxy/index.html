@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang=en>
+    <head>
+        <meta charset=utf-8>
+        <meta http-equiv=x-ua-compatible content="ie=edge">
+        <meta name=viewport content="width=device-width,initial-scale=1">
+        <title>Plan Settings</title>
+        <link rel=stylesheet href="https://docs.chef.io/sass/main.min.css">
+    </head>
+    <body>
+        <nav id="utility-bar" class="hide-for-print top-bar">
+            <a href="/" class="utility-bar-brand top-bar-left">
+                <img src="https://docs.chef.io/images/progress-chef-primary-logo.svg" alt="Chef Progress Logo" class=chef>
+            </a>
+            <ul class="menu top-nav show-for-mediumlarge top-bar-right">
+                <li>
+                    <a href="/" class=chef-conf-link>
+                        <span class=braces>{</span>
+                            Workshop Proxy
+                        <span class=braces>}</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class=off-canvas-wrapper>
+            <div class="grid-container fluid">
+                <div class=grid-x>
+                    <div id=left-nav-on-canvas class="cell position-left off-canvas-absolute reveal-for-mediumlarge col-sidebar" data-off-canvas>
+                        <aside class="sticky sidebar hide-for-print" data-sticky data-top-anchor=utility-bar:bottom data-btm-anchor=footer:top>
+                            <nav id=sidebar-nav>
+                                <div class=nav>
+                                    <ul class="vertical menu accordion-menu" data-accordion-menu>
+                                        <li><a target="00" href="/00/">Instructions</a></li>
+                                        <li><a target="01" href="/01/">01 - Build and Package</a></li>
+                                        <li><a target="02" href="/02/">02 - Deploy and Rollback</a></li>
+                                        <li><a target="03" href="/03/">03 - Prepacked Applications</a></li>
+                                        <li><a target="04" href="/04/">04 - Decentralization</a></li>
+                                        <li><a target="05" href="/05/">05 - Habitat Ring</a></li>
+                                        <li><a target="06" href="/06/">06 - Smart Updates</a></li>
+                                        <li><a target="07" href="/07/">07 - Host Compliance</a></li>
+                                        <li><a target="08" href="/08/">08 - Host Configuration</a></li>
+                                        <li><a target="09" href="/09/">09 - App Compliance</a></li>
+                                        <li><a target="10" href="/10/">10 - CI/CD</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </aside>
+                    </div>
+                                        
+
+                    <div id=main-content class="cell off-canvas-content auto">
+                        <main id=main-content-col tabindex=-1>
+                            <div id=col-content data-swiftype-index=true>
+                                <div id=service-template-data>
+                                    <h1>Edge Management Workshop</h1>
+                                </div>
+                                <p>
+                                    Please note each of your running applications has a unique HTTP port.
+                                    This proxy will allow you to access each of these applications on port 80 through the links on the left.
+                                </p>                                        
+                                <div>
+                                    <table>        
+                                        <caption>Habitat Module/Packaages</caption>                                
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Module</th>
+                                                <th>Origin</th>
+                                                <th>Package</th>
+                                                <th>Language</th>
+                                                <th>Port</th>
+                                                <th>Proxy</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>Workshop Proxy</td>
+                                                <td>workshop</td>
+                                                <td>proxy</td>
+                                                <td>Html (core/nginx)</td>
+                                                <td>80</td>
+                                                <td><a href="/">http://{server}/</a></td>
+                                            </tr>                                            
+                                            <tr>
+                                                <td>00</td>
+                                                <td>Instructions</td>
+                                                <td>workshop</td>
+                                                <td>instructions</td>
+                                                <td>Html (core/httpd)</td>
+                                                <td>8000</td>
+                                                <td><a target="00" href="/00/">http://{server}/00/</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01</td>
+                                                <td>Build and Package</td>
+                                                <td>workshop</td>
+                                                <td>build_package</td>
+                                                <td>Html (core/httpd)</td>
+                                                <td>8001</td>
+                                                <td><a target="01" href="/01/">http://{server}/01/</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>02</td>
+                                                <td>Deploy and Rollback</td>
+                                                <td>workshop</td>
+                                                <td>deploy_rollback</td>
+                                                <td>Go (core/go)</td>
+                                                <td>8002</td>
+                                                <td><a target="02" href="/02/">http://{server}/02/</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>03</td>
+                                                <td>Prepacked Applications</td>
+                                                <td>workshop</td>
+                                                <td>cots</td>
+                                                <td>&nbsp;</td>
+                                                <td>8003</td>
+                                                <td><a target="03" href="/03/">http://{server}/03/</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>04</td>
+                                                <td>Decentralization</td>
+                                                <td>workshop</td>
+                                                <td>decentralized</td>
+                                                <td>Java (core/tomcat8, core/corretto)</td>
+                                                <td>8004</td>
+                                                <td><a target="04" href="/04/">http://{server}/04/</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>05</td>
+                                                <td>Habitat Ring</td>
+                                                <td>workshop</td>
+                                                <td>ring</td>
+                                                <td>LANG</td>
+                                                <td>8005</td>
+                                                <td><a target="05" href="/01/">http://{server}/05/</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>06</td>
+                                                <td>Smart Updates</td>
+                                                <td>workshop</td>
+                                                <td>smart_updates</td>
+                                                <td>LANG</td>
+                                                <td>8006</td>
+                                                <td><a target="06" href="/06/">http://{server}/06/</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>07</td>
+                                                <td>Host Compliance</td>
+                                                <td>workshop</td>
+                                                <td>host_compliance</td>
+                                                <td>LANG</td>
+                                                <td>8007</td>
+                                                <td><a target="07" href="/07/">http://{server}/07/</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>08</td>
+                                                <td>Host Configuration</td>
+                                                <td>workshop</td>
+                                                <td>host_configuration</td>
+                                                <td>LANG</td>
+                                                <td>8008</td>
+                                                <td><a target="08" href="/08/">http://{server}/08/</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>09</td>
+                                                <td>App Compliance</td>
+                                                <td>workshop</td>
+                                                <td>app_compliance</td>
+                                                <td>LANG</td>
+                                                <td>8009</td>
+                                                <td><a target="09" href="/09/">http://{server}/09/</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>CI/CD</td>
+                                                <td>workshop</td>
+                                                <td>jenkins</td>
+                                                <td>Javascript (core/node)</td>
+                                                <td>8010</td>
+                                                <td><a target="10" href="/10/">http://{server}/10/</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </body>
+</html>

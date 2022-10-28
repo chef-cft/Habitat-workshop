@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang=en>
+    <!--#include virtual="/templates/header.html" -->
+    <body>
+        <!--#include virtual="/templates/top-nav.html" -->
+        <div class=off-canvas-wrapper>
+            <div class="grid-container fluid">
+                <div class=grid-x>
+                    <!--#set var="PAGE" value="build" -->
+                    <!--#include virtual="/templates/left-nav.html" -->
+
+                    <div id=main-content class="cell off-canvas-content auto">
+                        <main id=main-content-col tabindex=-1>
+                            <div id=col-content data-swiftype-index=true>
+                                <div id=service-template-data>
+                                    <h1>Habitat Package(s)</h1>
+                                </div>
+                                <p>
+                                    <img src="images/package-00"/>
+                                </p>
+                                <p>
+                                    Habitat Artifacts are signed, immutable objects that are built in a clean-room environment called the Studio. 
+                                    A .HART artifact is the final product of packaging the application and its automation instructions into a single binary file that can be deployed in 
+                                    any environment supported by the Habitat ecosystem.
+                                </p>
+                                <p>
+                                    This methodology eliminates the need for build engineers to create and maintain unique worker nodes for continuous integration servers. 
+                                    Instead, all direct and indirect application dependencies are defined in an artifact, and the resulting .HART file describes everything needed to build the application. 
+                                    This includes dependency management, runtime environment binaries, and application lifecycle hooks.
+                                </p>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+

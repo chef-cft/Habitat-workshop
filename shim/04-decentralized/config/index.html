@@ -1,0 +1,48 @@
+<html>
+    <head></head>
+    <body>
+        <H1>Habitat Service</H1>
+
+        <h2>Package {{pkg.name}} - version {{pkg.version}}</h2>
+        <h2>Origin {{pkg.origin}}</h2>
+
+        <hr/>
+
+		<div>
+            <pre>
+<!--SERVICES-->
+            </pre>
+		</div>
+
+        <hr/>
+
+        <h3><b>Package Prefix</b>: {{pkg.prefix}}</h3>
+        <p>The absolute path for your package.</p>
+
+        {{ pkg.version }} - {{pkg.origin }}
+
+        <h3><b>Package Prefix</b>: {{pkg.prefix}}</h3>
+        <p>The absolute path for your package.</p>
+
+        <h3><b>Directory</b>: {{pkg.dirname}}</h3>
+        <p>The directory created when Habitat extracts an archive.</p>
+
+        <h3><b>Service Path</b>: {{pkg.svc_path}}</h3>
+        <p>Where the running service is located.</p>
+
+        <h3><b>Data Path</b>:{{pkg.svc_data_path}}</h3>
+        <p>Where the running service data is located.</p>
+
+        <h3><b>Service Files</b>:{{pkg.svc_files_path}}</h3>
+        <p>Where the gossiped configuration files are located.</p>
+
+        <h3><b>Service Variables</b>:{{pkg.svc_var_path}}</h3>
+        <p>Where the running service variable data is located.</p>
+
+        <h3><b>Service Config</b>:{{pkg.svc_config_path}}</h3>
+        <p>Where the running service configuration is located.</p>
+
+        <h3><b>Service Static Data</b>:{{pkg.svc_static_path}}</h3>
+        <p>Where the running service static data is located.</p>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang=en>
+    <!--#include virtual="/templates/header.html" -->
+    <body>
+        <!--#include virtual="/templates/top-nav.html" -->
+        <div class=off-canvas-wrapper>
+            <div class="grid-container fluid">
+                <div class=grid-x>
+                    <!--#set var="PAGE" value="jenkins" -->
+                    <!--#include virtual="/templates/left-nav.html" -->
+
+                    <div id=main-content class="cell off-canvas-content auto">
+                        <main id=main-content-col tabindex=-1>
+                            <div id=col-content data-swiftype-index=true>
+                                <div id=service-template-data>
+                                    <h1>Welome</h1>
+                                </div>
+                                <p>
+                                    this is the welcome text for jenkins
+                                </p>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+Export Formats
+
+After an application has been packaged into a Habitat Artifact, the .HART file can be run directly by the Supervisor in your environment of choice. The immutable packages built in the Studio clean-room can be expected to run exactly as they were tested. This way application developers can focus on building for functionality and features, instead of spending time tuning an app to the chosen deployment environment.
+
+In CI/CD build and release pipelines, you may have a requirement that a package be tested in a different file format, such as a Docker container. The Habitat Studio supports exporting any built .HART artifact to a variety of formats, such as Docker, Mesos, CloudFoundry, ACI, or tar.
+
+This way Habitat can seamlessly integrate into your Build pipeline without disrupting the testing tools a team is already using. In this class we'll test the packages we build using Docker.
+
+Now that you have some background on the components of Habitat we'll be using in this course, let's put hands to keyboard and learn how to use some of the tools. We'll start by installing the Habitat command-line-interface on your workstation.
