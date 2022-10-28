@@ -23,6 +23,7 @@ newest_file_matching_pattern(){
 cd 00-proxy
     file=$(newest_file_matching_pattern results "$HAB_ORIGIN-proxy*.hart") 
     #hab pkg upload -u $PRIMARY_DEPOT -z $PRIMARY_PAT -c stable $file
+    echo $HAB_ORIGIN
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
 cd ..
 

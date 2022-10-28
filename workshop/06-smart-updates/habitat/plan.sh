@@ -1,9 +1,9 @@
-pkg_name="transactional"
-pkg_origin="mwrock"
+pkg_name="smart_updates"
+pkg_origin="workshop"
 pkg_version="0.1.0"
 
 pkg_deps=(
-  core/dotnet-asp-core core/hab
+  core/dotnet-core core/dotnet-asp-core core/hab
 )
 
 pkg_build_deps=(
