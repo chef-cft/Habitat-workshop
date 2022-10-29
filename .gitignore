@@ -2,6 +2,7 @@ cert.pem
 
 obj/
 bin/
+target/
 
 .DS_Store
 .tags*
