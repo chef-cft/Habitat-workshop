@@ -1,16 +1,17 @@
 #!/bin/bash
 exec 2>&1
 
-echo "Starting Apache Tomcat"
-export CATALINA_BASE="{{pkg_svc_config_path}}"
-export JAVA_HOME="{{pkgPathFor "core/corretto"}}"
-#export TOMCAT_HOME="{{pkg_svc_config_path}}"
+echo "Configure Enviornment"
+#export CATALINA_BASE="{{pkg.svc_config_path}}"
+export CATALINA_BASE="{{pkg.svc_var_path}}/tc"
+export JAVA_HOME="{{pkgPathFor "core/corretto11"}}"
 export TOMCAT_HOME="{{pkgPathFor "core/tomcat8"}}/tc"
-export JAVA_OPTS="-Dport.shutdown=8105 -Dport.http=8004" 
+
+echo "CATALINA_BASE=${CATALINA_BASE}"
+echo "JAVA_HOME=${JAVA_HOME}"
+echo "TOMCAT_HOME=${TOMCAT_HOME}"
 
 cp {{pkg.path}}/*.war $TOMCAT_HOME/webapps
 
-#cp $pkg_svc_config_path/server.xml $JAVA_HOME/conf/
-
-
+echo "Starting Apache Tomcat"
 exec ${TOMCAT_HOME}/bin/catalina.sh run

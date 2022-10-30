@@ -2,10 +2,11 @@
 
 echo "Preparing TOMCAT_HOME..."
 # Move directories that ship in the package into place
-#cp -a {{pkgPathFor "core/tomcat8"}}/tc {{pkg.svc_var_path}}/
+cp -a {{pkgPathFor "core/tomcat8"}}/tc {{pkg.svc_var_path}}/
+cp {{pkg.path}}/*.war {{pkg.svc_var_path}}/tc/webapps
 
-#cp {{pkg.path}}/*.war {{pkg.svc_var_path}}/tc/webapps
-
+#export CATALINA_BASE="{{pkg.svc_config_path}}"
+#export TOMCAT_HOME="{{pkgPathFor "core/tomcat8"}}/tc"
 
 
 # Following lines are to copy project tomcat configs to run time tomcat8 directory
@@ -16,8 +17,7 @@ echo "Preparing TOMCAT_HOME..."
 #  ln -vsf {{pkg.svc_config_path}}/$file {{pkg.svc_var_path}}/tc/$target
 #done
 
-
-#cp $pkg_svc_config_path/server.xml {{pkg.svc_var_path}}/var/tc/conf/
-
+echo "cp {{pkg.svc_config_path}}/server.xml {{pkg.svc_var_path}}/var/tc/conf/server.xml"
+cp {{pkg.svc_config_path}}/server.xml {{pkg.svc_var_path}}/tc/conf/
 
 echo "Done preparing TOMCAT_HOME"
