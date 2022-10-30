@@ -4,11 +4,12 @@
 # default channel stable
 # deploy_rollback, jenkins - Channel: production
 # decentralized, ring - Channel: store-1
+
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel stable workshop/proxy 
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel stable workshop/instructions
 
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel stable workshop/build_package
-hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel production -workshop/deploy_rollback
+hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel production workshop/deploy_rollback
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel stable workshop/cots
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel store-1 workshop/decentralized
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel store-1 --group store1 workshop/ring
@@ -25,7 +26,7 @@ hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel stable workshop/instructions
 
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel stable workshop/build_package
-hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel production -workshop/deploy_rollback
+hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel production workshop/deploy_rollback
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel stable workshop/cots
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel store-1 workshop/decentralized
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel store-1 --group store1 workshop/ring

@@ -1,49 +1,49 @@
 #!/bin/bash
 
 cd 00-proxy
-build
+hab studio build
 cd ..
 
 cd 00-workshop-instructions
-build
+hab studio build
 cd ..
 
 cd 01-build-and-package
-build
+hab studio build
 cd ..
 
 cd 02-deploy-rollback
-build
+hab studio build
 cd ..
 
 cd 03-cots
-build
+hab studio build
 cd ..
 
 cd 04-decentralized
-build
+hab pstudiokg build
 cd ..
 
 cd 05-ring
-build
+hab studio build
 cd ..
 
 cd 06-smart-updates
-build
+hab studio build
 cd ..
 
 cd 07-host-compliance
-build
+hab studio build
 cd ..
 
 cd 08-host-configuration
-build
+hab studio build
 cd ..
 
 cd 09-app-compliance
-build
+hab studio build
 cd ..
 
 cd 10-jenkins
-build
+hab studio build
 cd ..

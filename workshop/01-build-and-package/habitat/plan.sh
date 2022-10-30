@@ -8,6 +8,11 @@ pkg_svc_user="root"
 pkg_svc_group="root"
 pkg_svc_run="httpd -DFOREGROUND -f $pkg_svc_config_path/httpd.conf"
 
+# Habitat provides you with a number of built-in "callbacks" to use
+# in the course of your build, all of which are explained in the docs
+# at https://habitat.sh/docs/reference/#reference-callbacks.
+
+
 # The default implementation is that the software specified in $pkg_source is
 # downloaded, checksum-verified, and placed in $HAB_CACHE_SRC_PATH/$pkgfilename,
 # which resolves to a path like /hab/cache/src/filename.tar.gz. You should

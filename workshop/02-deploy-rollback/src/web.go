@@ -24,7 +24,7 @@ func init() {
 func pingHandler(w http.ResponseWriter, r *http.Request) {
 	currentTime := time.Now()
 	body := template.HTML(fmt.Sprintf("<pre>%s</pre>", currentTime.Format("2006-01-02 15:04:05 Monday")))
-	TEMPLATE.Execute(w, Page{Title: "Services", Body: body})
+	TEMPLATE.Execute(w, Page{Title: "Ping", Body: body})
 }
 
 func homeHandler(response http.ResponseWriter, request *http.Request) {

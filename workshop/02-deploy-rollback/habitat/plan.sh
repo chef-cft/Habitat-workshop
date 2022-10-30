@@ -19,18 +19,10 @@ pkg_maintainer="The Chef Training Team <training@chef.io>"
 pkg_license=('Apache-2.0')
 pkg_build_deps=(core/go)
 pkg_deps=(core/hab)
-pkg_svc_user="root"
-pkg_svc_group="root"
+pkg_svc_user="hab"
+pkg_svc_group="hab"
 pkg_svc_run="${pkg_name} serve $pkg_svc_config_path/settings.json"
 pkg_bin_dirs=(bin)
-
-
-# Habitat provides you with a number of built-in "callbacks" to use
-# in the course of your build, all of which are explained in the docs
-# at https://habitat.sh/docs/reference/#reference-callbacks.
-#
-# Here, we're implementing the do_build and do_install callbacks
-# to install dependencies and assemble the application package.
 
 do_download() {
   return 0
