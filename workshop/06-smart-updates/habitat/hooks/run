@@ -9,7 +9,9 @@
 # trap _term TERM
 
 cd "{{pkg.svc_var_path}}/www" || exit
-exec dotnet {{pkg.name}}.dll 2>&1
+
+exec {{pkgPathFor "core/dotnet-asp-core"}}/bin/dotnet {{pkg.name}}.dll 2>&1
+# #exec {{pkgPathFor "core/dotnet-core"}}/bin/dotnet {{pkg.name}}.dll 2>&1
 
 # while true; do
 #   sleep 1

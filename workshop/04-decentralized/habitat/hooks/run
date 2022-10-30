@@ -4,8 +4,8 @@ exec 2>&1
 echo "Starting Apache Tomcat"
 export CATALINA_BASE="{{pkg_svc_config_path}}"
 export JAVA_HOME="{{pkgPathFor "core/corretto"}}"
-export TOMCAT_HOME="{{pkg_svc_config_path}}"
-#export TOMCAT_HOME="{{pkgPathFor "core/tomcat8"}}/tc"
+#export TOMCAT_HOME="{{pkg_svc_config_path}}"
+export TOMCAT_HOME="{{pkgPathFor "core/tomcat8"}}/tc"
 export JAVA_OPTS="-Dport.shutdown=8105 -Dport.http=8004" 
 
 cp {{pkg.path}}/*.war $TOMCAT_HOME/webapps

@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace transactional
+namespace smart_updates
 {
     public class Program
     {
@@ -20,6 +20,8 @@ namespace transactional
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                               webBuilder.UseUrls("http://*:8006");
+
                     webBuilder.UseStartup<Startup>();
                 });
     }

@@ -1,6 +1,6 @@
 pkg_name="smart_updates"
 pkg_origin="workshop"
-pkg_version="0.1.0"
+pkg_version="1.0.0"
 
 pkg_deps=(
   core/dotnet-core core/dotnet-asp-core core/hab
