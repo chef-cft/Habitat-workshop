@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Store Configuration</title>
+    <style>
+      form {
+        margin: 4em 4em;
+        width: 26em;
+      }
+      button {
+          display: block;
+          align-self: center;
+          margin: .5em auto;
+      }
+      body {
+        background-color:slategray;
+        color: linen;
+      }
+      input {
+        width: 16em;
+      }
+      label {
+        width: 8em;
+        display: inline-block;
+        text-align: left;
+        margin-bottom: 0.5em;
+      }
+      h1 {
+        text-align: center;
+      }
+      .blocked {
+        background-color: #fff;
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+      <h1>Submitting Configuration</h1>
+      <p><b>Merchant ID:<b>   from <span class="blocked">{{ t_merchant_id }}  </span>&nbsp;to&nbsp;<span class="blocked">{{ s_merchant_id }}</span></p>
+      <p><b>Store Number:<b>  from <span class="blocked">{{ t_store_number }} </span>&nbsp;to&nbsp;<span class="blocked">{{ s_store_number }}</span></p>
+      <p><b>Street:<b>        from <span class="blocked">{{ t_street }}       </span>&nbsp;to&nbsp;<span class="blocked">{{ s_street }}</span></p>
+      <p><b>City:<b>          from <span class="blocked">{{ t_city }}         </span>&nbsp;to&nbsp;<span class="blocked">{{ s_city }}</span></p>
+      <p><b>State:<b>         from <span class="blocked">{{ t_state }}        </span>&nbsp;to&nbsp;<span class="blocked">{{ s_state }}</span></p>
+      <p><b>Zip:<b>           from <span class="blocked">{{ t_zip }}          </span>&nbsp;to&nbsp;<span class="blocked">{{ s_zip }}</span></p>
+      <hr />
+      <p>
+        This page will redirect in <span id="countdown"></span> seconds.
+      </p>
+
+      <script>
+      (function countdown(remaining) {
+        if(remaining === 0)
+          location.href="/";
+        document.getElementById('countdown').innerHTML = remaining;
+        setTimeout(function(){ countdown(remaining - 1); }, 1000);
+      })(10);
+    </script>
+  </body>
+</html>

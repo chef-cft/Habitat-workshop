@@ -14,7 +14,7 @@
 
 pkg_origin=workshop
 pkg_name=deploy_rollback
-pkg_version="0.1.0"
+pkg_version="1.0.0"
 pkg_maintainer="The Chef Training Team <training@chef.io>"
 pkg_license=('Apache-2.0')
 pkg_build_deps=(core/go)

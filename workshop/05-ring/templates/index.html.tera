@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Store Configuration</title>
+    <style>
+      form {
+        margin: 4em 4em;
+        width: 26em;
+      }
+      button {
+          display: block;
+          align-self: center;
+          margin: .5em auto;
+      }
+      body {
+        background-color:slategray;
+        color: linen;
+      }
+      input {
+        width: 16em;
+      }
+      label {
+        width: 8em;
+        display: inline-block;
+        text-align: left;
+        margin-bottom: 0.5em;
+      }
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+      <h1>Store Configuration</h1>
+      <p><b>Merchant ID:<b> {{ t_merchant_id }}</p>
+      <p><b>Store Number:<b> {{ t_store_number }}</p>
+      <p><b>Street:<b> {{ t_street }}</p>
+      <p><b>City:<b> {{ t_city }}</p>
+      <p><b>State:<b> {{ t_state }}</p>
+      <p><b>Zip:<b> {{ t_zip }}</p>
+      <hr />
+      <p>
+        To change your settings click <a href="/change">here</a>.
+      </p>
+  </body>
+</html>

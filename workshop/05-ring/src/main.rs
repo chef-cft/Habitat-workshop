@@ -1,12 +1,11 @@
 use std::collections::HashMap;
-use std::fs::{self, File};
+use std::fs::{File};
 use std::io::{self, prelude::*, Error};
 use std::process::Command;
 use std::time::{SystemTime, UNIX_EPOCH};
 
 use poem::error::InternalServerError;
 use poem::{
-    //endpoint::EmbeddedFileEndpoint,
     error::NotFoundError,
     get, handler,
     http::StatusCode,
@@ -21,7 +20,6 @@ use tera::{Context, Tera};
 #[macro_use]
 extern crate lazy_static;
 
-//use rust_embed::RustEmbed;
 use serde::Deserialize;
 
 //----------------------------------------------------------------------
@@ -68,41 +66,37 @@ fn write_string_to_file(data: String, path_str: &str) -> Result<File, io::Error>
 }
 
 fn hab_config_apply() {
+    //**** CAPTURE GROUP
+    let output = Command::new("hab")
+        .arg("sup")
+        .arg("status")
+        .arg("workshop/ring")
+        .output().unwrap();
+
+        let buffer = String::from_utf8(output.stdout).unwrap();
+        let parts = buffer.split('.').collect::<Vec<_>>();
+        let mut group = parts.last().unwrap().to_string();
+        group.pop();
+
+    //**** UPDATE SETTINGS
     let d = SystemTime::now().duration_since(UNIX_EPOCH).unwrap();
     let s = d.as_secs().to_string();
 
-    // sudo ???
-    // hab config apply
-    //      poem-toy.default
-    //      $(date +%s)
-    //      changes.toml
-    // hab config apply poem-toy.default $(date +%s) changes.toml
-
-//TODO: fix this
-//this needs to get the service group from an ENV variable
-
-    let mut cmd = Command::new("/bin/hab");
+    let mut group_arg: String = "ring.".to_owned();
+    group_arg.push_str(&group);
+    
+    let mut cmd = Command::new("hab");
     cmd.arg("config")
         .arg("apply")
-        .arg("ring.default")
+        .arg(group_arg)
         .arg(s)
         .arg("/hab/svc/ring/files/changes.toml");
-    // JAH: ABOVE is for running inside of supervisor
-    // JAH: BELOW is for running outside of supervisor
-    // .arg("changes.toml");
 
-    println!("CMD:{:#?}", &cmd);
-
-    let output = cmd.output();
-
-    println!("COMMAND:\n{:#?}", output);
+    let _output = cmd.output();
 }
 
 #[handler]
-fn module_five() -> Result<Html<String>, poem::Error> {
-    // let map = json_to_hashmap("habitat/config/application-settings.json").unwrap();
-    // JAH: ABOVE is for running outside of supervisor
-    // JAH: BELOW is for running inside of supervisor
+fn hander_index() -> Result<Html<String>, poem::Error> {
     let map = json_to_hashmap("/hab/svc/ring/config/application-settings.json").unwrap();
 
     let mut context = Context::new();
@@ -114,7 +108,67 @@ fn module_five() -> Result<Html<String>, poem::Error> {
     context.insert("t_zip", map.get("zip").unwrap());
 
     TEMPLATES
-        .render("module_five.html.tera", &context)
+        .render("index.html.tera", &context)
+        .map_err(InternalServerError)
+        .map(Html)
+}
+
+
+#[handler]
+fn handler_change() -> Result<Html<String>, poem::Error> {
+    let map = json_to_hashmap("/hab/svc/ring/config/application-settings.json").unwrap();
+
+    let mut context = Context::new();
+    context.insert("t_merchant_id", map.get("merchant_id").unwrap());
+    context.insert("t_store_number", map.get("store_number").unwrap());
+    context.insert("t_street", map.get("street").unwrap());
+    context.insert("t_city", map.get("city").unwrap());
+    context.insert("t_state", map.get("state").unwrap());
+    context.insert("t_zip", map.get("zip").unwrap());
+
+    TEMPLATES
+        .render("change.html.tera", &context)
+        .map_err(InternalServerError)
+        .map(Html)
+}
+
+#[handler]
+async fn handler_change_process(Form(params): Form<ModuleFiveParams>) -> Result<Html<String>, poem::Error> {
+    let map = json_to_hashmap("/hab/svc/ring/config/application-settings.json").unwrap();
+
+    let mut context = Context::new();
+    context.insert("t_merchant_id", map.get("merchant_id").unwrap());
+    context.insert("t_store_number", map.get("store_number").unwrap());
+    context.insert("t_street", map.get("street").unwrap());
+    context.insert("t_city", map.get("city").unwrap());
+    context.insert("t_state", map.get("state").unwrap());
+    context.insert("t_zip", map.get("zip").unwrap());
+    
+    context.insert("s_merchant_id", &params.merchant_id);
+    context.insert("s_store_number", &params.store_number);
+    context.insert("s_street", &params.street);
+    context.insert("s_city", &params.city);
+    context.insert("s_state", &params.state);
+    context.insert("s_zip", &params.zip);
+
+    
+    
+    let params= format!(
+        "merchant_id = {:?}\nstore_number = {:?}\nstreet = {:?}\ncity = {:?}\nstate = {:?}\nzip = {:?}",
+        params.merchant_id,
+        params.store_number,
+        params.street,
+        params.city,
+        params.state,
+        params.zip
+    );
+
+    let _f = write_string_to_file(params, "changes.toml");
+    hab_config_apply();
+
+    
+    TEMPLATES
+        .render("refresh.html.tera", &context)
         .map_err(InternalServerError)
         .map(Html)
 }
@@ -169,17 +223,16 @@ async fn main() -> Result<(), std::io::Error> {
         std::env::set_var("RUST_LOG", "poem=debug,tera=debug");
     }
     tracing_subscriber::fmt::init();
-    // get(module_five_form).post(module_five_process),
 
     let app = Route::new()
-        .at("/", get(module_five).post(module_five_process))
+        .at("/", get(hander_index))
+        .at("/change", get(handler_change).post(handler_change_process))
         .catch_error(|_: NotFoundError| async move {
             Response::builder()
                 .status(StatusCode::NOT_FOUND)
                 .body("Something Went Wrong")
         });
 
-    //Server::new(TcpListener::bind("127.0.0.1:8005"))
     Server::new(TcpListener::bind("0.0.0.0:8005"))
         .run(app)
         .await
