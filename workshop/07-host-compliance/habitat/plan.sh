@@ -1,30 +1,9 @@
+pkg_origin=workshop
 pkg_name=host_compliance
 pkg_version=1.0.0
-pkg_origin=workshop
-pkg_deps=(chef/inspec)
-pkg_license='Apache-2.0'
+pkg_scaffolding="chef/scaffolding-chef-inspec"
 
-do_setup_environment() {
-  ARCHIVE_PATH="$HAB_CACHE_SRC_PATH/$pkg_dirname/$pkg_name-$pkg_version.tar.gz"
-}
-
-do_build() {
-  if [ ! -f $PLAN_CONTEXT/../inspec.yml ]; then
-    exit_with 'Cannot find inspec.yml. Please build from profile root.' 1
-  fi
-
-  local profile_files=($(ls $PLAN_CONTEXT/../ -I habitat -I results))
-  local profile_location="$HAB_CACHE_SRC_PATH/$pkg_dirname/build"
-  mkdir -p $profile_location
-
-  build_line "Copying profile files to $profile_location"
-  cp -R ${profile_files[@]} $profile_location
-
-  build_line "Archiving $ARCHIVE_PATH"
-  inspec archive "$HAB_CACHE_SRC_PATH/$pkg_dirname/build" -o $ARCHIVE_PATH --overwrite
-}
-
-do_install() {
-  mkdir -p $pkg_prefix/profiles
-  cp $ARCHIVE_PATH $pkg_prefix/profiles
-}
+#scaffold_automate_server_url="htps://172.31.54.5"               # Example: https://foo.bar.com
+#scaffold_automate_user="admin"                                   # Example: "admin", "habitat"
+#scaffold_automate_token="E2bCL2WgfBqyo_lw8M-2OWm8WT0="           # Example: "DI0WVxInnyGnWKRlZBGizTXySgk="
+#scaffold_compliance_insecure=true                                # set true to ignore SSL cert error when retrieving profile from A2

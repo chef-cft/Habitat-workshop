@@ -1,1 +1,20 @@
-sleep_time = 300
+interval=300
+
+[chef_license]
+acceptance="accept-no-persist"
+
+[automate]
+enable=true
+server_url="https://172.31.54.5"               
+token="E2bCL2WgfBqyo_lw8M-2OWm8WT0="
+node_uuid="0ad27d0f-e4d0-434d-9290-a5385b2a0eb1"
+environment="host"
+
+[compliance]
+insecure=true
+
+[waivers]
+[waivers.xccdf_org.cisecurity.benchmarks_rule_1.1.1.1_Ensure_mounting_of_cramfs_filesystems_is_disabled]
+run="false"
+expiration_date="2023-01-01"
+justification="this control is not enforced"
