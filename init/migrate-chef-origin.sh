@@ -1,6 +1,8 @@
 export OLD_AUTH_TOKEN=$HAB_AUTH_TOKEN
 export HAB_AUTH_TOKEN="_Qk9YLTEKYmxkci0yMDE3MDkyNzAyMzcxNApibGRyLTIwMTcwOTI3MDIzNzE0ClJDcXNzcWdOazBWTlptMGJJanQwYklUWDkvc3lkT3BQCmRVSzBWbHRTVzNWY2FiSUFGTUxQSERVMDQ0T2RmUzYrR2h4SlBRVnVCeVBTUGpNag=="
 
+hab origin key download -u "https://bldr.habitat.sh" chef
+
 #download a specific version of Infra Client
 hab pkg download -u "https://bldr.habitat.sh" --download-directory . chef/chef-infra-client/17.10.3/20220823074032
 

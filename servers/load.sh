@@ -1,3 +1,3 @@
-shutdown/store-1.sh
-shutdown/store-2.sh
-shutdown/store-3.sh
+startup/store-1.sh
+startup/store-2.sh
+startup/store-3.sh
