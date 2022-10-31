@@ -1,6 +1,6 @@
 pkg_origin=workshop
 pkg_name=jenkins
-pkg_version="1.1.1"
+pkg_version="1.0.0"
 pkg_deps=(core/node)
 pkg_svc_user="root"
 pkg_svc_group="root"
