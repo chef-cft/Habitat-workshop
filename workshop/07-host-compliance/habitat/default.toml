@@ -1,14 +1,8 @@
 interval=300
+splay_first_run=30
 
 [chef_license]
 acceptance="accept-no-persist"
-
-[automate]
-enable=true
-server_url="https://172.31.54.5"               
-token="E2bCL2WgfBqyo_lw8M-2OWm8WT0="
-node_uuid="0ad27d0f-e4d0-434d-9290-a5385b2a0eb1"
-environment="host"
 
 [compliance]
 insecure=true
@@ -18,3 +12,10 @@ insecure=true
 run="false"
 expiration_date="2023-01-01"
 justification="this control is not enforced"
+
+[automate]
+enable=true
+server_url="https://172.31.54.5"               
+token="E2bCL2WgfBqyo_lw8M-2OWm8WT0="
+node_uuid="00000000-0000-0000-0000-000000000000"
+environment="host"

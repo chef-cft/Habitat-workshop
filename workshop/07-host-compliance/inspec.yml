@@ -7,5 +7,5 @@ maintainer: Chef Software, Inc.
 copyright: Chef Software, Inc.
 copyright_email: support@chef.io
 license: Proprietary, All rights reserved
-#supports:
-#- platform-name: ubuntu
+supports:
+- platform-name: ubuntu
