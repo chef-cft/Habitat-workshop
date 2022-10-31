@@ -3,6 +3,8 @@ cert.pem
 obj/
 bin/
 target/
+init/artifacts
+init/keys
 
 .DS_Store
 .tags*
