@@ -1,6 +1,6 @@
 pkg_name=ring
 pkg_origin=workshop
-pkg_version="1.1.0"
+pkg_version="1.0.0"
 pkg_maintainer="The Chef Training Team <training@chef.io>"
 pkg_license=("Apache-2.0")
 pkg_svc_user="root"

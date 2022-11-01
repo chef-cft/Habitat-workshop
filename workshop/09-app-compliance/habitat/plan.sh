@@ -1,8 +1,10 @@
 pkg_name=app_compliance
-pkg_version=2.2.0
+pkg_version=1.0.0
 pkg_origin=workshop
 pkg_deps=(chef/inspec)
 pkg_license='Apache-2.0'
+pkg_svc_user="root"
+pkg_svc_group="root"
 
 do_setup_environment() {
   ARCHIVE_PATH="$HAB_CACHE_SRC_PATH/$pkg_dirname/$pkg_name-$pkg_version.tar.gz"

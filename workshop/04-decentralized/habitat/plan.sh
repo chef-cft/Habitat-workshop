@@ -7,6 +7,7 @@ pkg_license=('Apache-2.0')
 pkg_deps=(core/tomcat8 core/corretto11)
 pkg_build_deps=(core/corretto11 core/maven)
 pkg_svc_user="root"
+pkg_svc_group="root"
 
 do_prepare()
 {
