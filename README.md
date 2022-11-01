@@ -14,3 +14,14 @@
 | Store 2 Device 1 | 172.31.54.21 | N/A |
 | Store 3 Device 1 | 172.31.54.31 | N/A |
 | Store 3 Device 2 | 172.31.54.32 | N/A |
+
+##Logins
+### Automate/bldr
+Username: admin
+Password: habworkshop
+### Jenkins
+Username: admin
+Password: habworkshop
+### Gitea
+Username: administrator
+Password: habworkshop
