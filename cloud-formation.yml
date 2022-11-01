@@ -172,6 +172,11 @@ Resources:
                 Store 2 Device 1 --- 172.31.54.21 --- ${s2d1}
                 Store 3 Device 1 --- 172.31.54.31 --- ${s3d1}
                 Store 3 Device 2 ---  172.31.54.32 --- ${s3d2}
+                ----- Lab 10 Details -----
+                Repo Url: http://${jenkins}:3000//administrator/hab-application.git
+                Jenkins Url: http://${jenkins}:8080
+                Git Login: user=administrator pass=habworkshop
+                Jenkins Login: user=admin pass=habworkshop
                 EOT
             - automate: !GetAtt Automate.PublicIp
               secondbuilder: !GetAtt SecondBuilder.PublicIp
@@ -242,7 +247,7 @@ Resources:
     Properties:
       InstanceType: t3.medium
       KeyName: !Ref 'KeyName'
-      ImageId: 'ami-0c4320ba0b11ff018'
+      ImageId: 'ami-011ab6605a9935dad'
       NetworkInterfaces:
         - GroupSet:
             - !Ref 'AutomateSG'
