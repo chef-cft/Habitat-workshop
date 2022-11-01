@@ -1,7 +1,7 @@
 # Habitat Workshop
 
 
-## 
+## Components
 
 | Component | Internal IP | Web Url |
 | ------------ | ---------- | --------|
