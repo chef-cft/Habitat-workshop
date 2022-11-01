@@ -1,0 +1,47 @@
+#!{{ pkgPathFor "core/bash" }}/bin/bash
+
+export HOME="{{pkg.svc_var_path}}"
+export INSPEC_CONFIG_DIR="{{pkg.svc_var_path}}"
+export SSL_CERT_FILE="{{ pkgPathFor "${CFG_CACERTS:-core/cacerts}" }}/ssl/cert.pem"
+export SSL_CERT_DIR="{{ pkgPathFor "${CFG_CACERTS:-core/cacerts}" }}/ssl/certs"
+
+CFG_SPLAY_FIRST_RUN={{cfg.splay_first_run}}
+CFG_SPLAY_FIRST_RUN="\${CFG_SPLAY_FIRST_RUN:-0}"
+CFG_INTERVAL={{cfg.interval}}
+CFG_INTERVAL="\${CFG_INTERVAL:-1800}"
+CFG_SPLAY={{cfg.splay}}
+CFG_SPLAY="\${CFG_SPLAY:-1800}"
+CFG_LOG_LEVEL={{cfg.log_level}}
+CFG_LOG_LEVEL="\${CFG_LOG_LEVEL:-warn}"
+CFG_CHEF_LICENSE={{cfg.chef_license.acceptance}}
+CFG_CHEF_LICENSE="\${CFG_CHEF_LICENSE:-undefined}"
+CONFIG="{{pkg.svc_config_path}}/inspec_exec_config.json"
+WAIVER="{{pkg.svc_config_path}}/waiver.yml"
+INPUTS="{{pkg.svc_config_path}}/inputs.yml"
+PROFILE_PATH="{{pkg.path}}/{{pkg.name}}-{{pkg.version}}*.tar.gz"
+
+CENSUS=$(curl -s localhost:9631/census)
+NODE_ID=$(echo $CENSUS | grep -Pio -m1 '"member_id":"[^"]*"' | grep -Eo -m1 '[^:]*$')
+sed -i "s/\"11111111-1111-1111-1111-111111111111\"/$NODE_ID/" ${CONFIG}
+
+cfg_waiver_cmd="--waiver-file ${WAIVER}"
+echo ${cfg_waiver_cmd}
+
+inspec_cmd()
+{
+  #{{pkgPathFor "chef/inspec"}}/bin/inspec exec ${PROFILE_PATH} --config ${CONFIG} ${cfg_waiver_cmd} --input-file ${INPUTS} --chef-license $CFG_CHEF_LICENSE --log-level $CFG_LOG_LEVEL
+  #{{pkgPathFor "chef/inspec"}}/bin/inspec exec ${PROFILE_PATH} --config ${CONFIG} ${cfg_waiver_cmd} --chef-license $CFG_CHEF_LICENSE --log-level $CFG_LOG_LEVEL
+  {{pkgPathFor "chef/inspec"}}/bin/inspec exec "{{pkg.path}}/profiles/*" --config ${CONFIG} ${cfg_waiver_cmd} --chef-license $CFG_CHEF_LICENSE --log-level $CFG_LOG_LEVEL
+  #{{pkgPathFor "chef/inspec"}}/bin/inspec exec "{{pkg.path}}/profiles/*" --config ${CONFIG} --chef-license $CFG_CHEF_LICENSE --log-level $CFG_LOG_LEVEL
+}
+
+
+exec 2>&1
+inspec_cmd
+
+while true; do
+  SLEEP_TIME=600
+  echo "InSpec is sleeping for $SLEEP_TIME seconds"
+  sleep $SLEEP_TIME
+  inspec_cmd
+done
