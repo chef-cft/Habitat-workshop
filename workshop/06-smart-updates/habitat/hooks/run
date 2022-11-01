@@ -1,0 +1,18 @@
+# _term() {
+#   echo "run hook is terminating. Waiting for transactions to complete..."
+#   while [ -f "{{pkg.svc_var_path}}/www/myfile" ]; do
+#     sleep 1
+#   done
+#   echo "all transactions are complete!"
+# }
+
+# trap _term TERM
+
+cd "{{pkg.svc_var_path}}/www" || exit
+
+exec {{pkgPathFor "core/dotnet-asp-core"}}/bin/dotnet {{pkg.name}}.dll 2>&1
+# #exec {{pkgPathFor "core/dotnet-core"}}/bin/dotnet {{pkg.name}}.dll 2>&1
+
+# while true; do
+#   sleep 1
+# done

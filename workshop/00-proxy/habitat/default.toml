@@ -1,0 +1,72 @@
+worker_processes = 1
+
+[events]
+worker_connections = 512
+
+[http.server]
+listen = 80
+index = "index.html"
+
+
+[[service]]
+name = "80"
+code = "80"
+port = "8080"
+
+[[service]]
+name = "00-workshop-instructions"
+code = "00"
+port = "8000"
+
+[[service]]
+name = "01-build-and-package"
+code = "01"
+port = "8001"
+
+[[service]]
+name = "02-deploy-rollback"
+code = "02"
+port = "8002"
+
+[[service]]
+name = "03-"
+code = "03"
+port = "8003"
+
+[[service]]
+name = "04-"
+code = "04"
+port = "8004"
+
+[[service]]
+name = "05-"
+code = "05"
+port = "8005"
+
+[[service]]
+name = "06-"
+code = "06"
+port = "8006"
+
+[[service]]
+name = "07-"
+code = "07"
+port = "8007"
+
+[[service]]
+name = "08-"
+code = "08"
+port = "8008"
+
+[[service]]
+name = "09-"
+code = "09"
+port = "8009"
+
+[[service]]
+name = "10-jenkins"
+code = "10"
+port = "8010"
+
+
+

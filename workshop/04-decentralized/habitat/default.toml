@@ -1,0 +1,5 @@
+[server]
+port = 8004
+shutdown-port = 8105
+redirect-port = 8443
+apj-port = 8109

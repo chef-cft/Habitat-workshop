@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang=en>
+    <!--#include virtual="/templates/header.html" -->
+    <body>
+        <!--#include virtual="/templates/top-nav.html" -->
+        <div class=off-canvas-wrapper>
+            <div class="grid-container fluid">
+                <div class=grid-x>
+                    <!--#set var="PAGE" value="build" -->
+                    <!--#include virtual="/templates/left-nav.html" -->
+
+                    <div id=main-content class="cell off-canvas-content auto">
+                        <main id=main-content-col tabindex=-1>
+                            <div id=col-content data-swiftype-index=true>
+                                <div id=service-template-data>
+                                    <h1>Habitat Supervisor</h1>
+                                </div>
+                                <p>
+                                    When running an application you need a subsystem to monitor the underlying processes. 
+                                    The subsystem is responsible for ensuring required services are available before an application starts, or when it's reconfigured. 
+                                    In many modern architectures some amount of responsibility for the resilience of an application depends on a developer coding with an unreliable service backend in mind, instead of focusing on application functionality and features.
+                                </p>
+                                <p>
+                                    When these responsibilities are given over to the Habitat Supervisor, it can perform pre-defined environment readiness checks, sequencing, service discovery, deployment pattern execution, real-time reporting and even roll-backs. 
+                                    The Supervisor is a light-weight agent built to handle all these runtime operations. 
+                                    By declaring the runtime responsibilities during the application definition phase, you know exactly how an application will be managed by the Supervisor during its runtime.
+                                </p>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

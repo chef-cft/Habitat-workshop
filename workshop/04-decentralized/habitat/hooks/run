@@ -1,0 +1,17 @@
+#!/bin/bash
+exec 2>&1
+
+echo "Configure Enviornment"
+#export CATALINA_BASE="{{pkg.svc_config_path}}"
+export CATALINA_BASE="{{pkg.svc_var_path}}/tc"
+export JAVA_HOME="{{pkgPathFor "core/corretto11"}}"
+export TOMCAT_HOME="{{pkgPathFor "core/tomcat8"}}/tc"
+
+echo "CATALINA_BASE=${CATALINA_BASE}"
+echo "JAVA_HOME=${JAVA_HOME}"
+echo "TOMCAT_HOME=${TOMCAT_HOME}"
+
+cp {{pkg.path}}/*.war $TOMCAT_HOME/webapps
+
+echo "Starting Apache Tomcat"
+exec ${TOMCAT_HOME}/bin/catalina.sh run

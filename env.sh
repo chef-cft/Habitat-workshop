@@ -1,0 +1,12 @@
+export HAB_ORIGIN="workshop"
+export PRIMARY_DEPOT="https://ip-172-31-54-5.us-west-2.compute.internal/bldr/v1/"
+export PRIMARY_BUILDER="https://ip-172-31-54-5.us-west-2.compute.internal/bldr/v1/"
+export LOCAL_BUILDER="https://ip-172-31-54-7.us-west-2.compute.internal/bldr/v1/"
+
+
+#export PRIMARY_DEPOT="https://172.31.54.5/bldr/v1/"
+#export PRIMARY_DEPOT="https://172.31.54.7/bldr/v1/"
+
+
+export PRIMARY_PAT="_Qk9YLTEKYmxkci0yMDIyMTAyMTAzMjQyMgpibGRyLTIwMjIxMDIxMDMyNDIyClR3cFN0UnRRQTQ4UE85YTg1cEVzZ1NNWVk2aHpYZUs5CmxsbTVQQ0NwOFRBYzRhYlgrWnhQdDc5M01Rc3RCZDhWTUdZZ2VzU1paVisxV0Z6SQ=="
+export HAB_CTL_SECRET="Ct6xkqw4kggECo1IvzappT1v5tc/T0833k42H8gvTSARPou9MIka4LURSwZQlrp7q9FJMZ4hT0pnihymcKGcLg=="

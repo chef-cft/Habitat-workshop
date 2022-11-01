@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang=en>
+    <!--#include virtual="/templates/header.html" -->
+    <body>
+        <!--#include virtual="/templates/top-nav.html" -->
+        <div class=off-canvas-wrapper>
+            <div class="grid-container fluid">
+                <div class=grid-x>
+                    <!--#set var="PAGE" value="build" -->
+                    <!--#include virtual="/templates/left-nav.html" -->
+
+                    <div id=main-content class="cell off-canvas-content auto">
+                        <main id=main-content-col tabindex=-1>
+                            <div id=col-content data-swiftype-index=true>
+                                <div id=service-template-data>
+                                    <h1>Habitat Studio</h1>
+                                </div>
+                                <p>
+                                    Habitat Studio is a development kit for creating automated build and deployment plans. 
+                                    Studio is where packages are defined, packaged, and tested. 
+                                    As a clean-room environment it contains only the minimal number of system dependencies needed to build an application. 
+                                    It's essentially an empty environment, which requires application developers to declare exactly what build and runtime dependencies are needed for your application to function correctly.
+                                </p>
+                                <p>
+                                    The power of building in a cleanroom is ensuring that packages are built consistently and completely, and will run correctly wherever they're deployed. 
+                                    This eliminates the discrepancies between test and production environment runtimes.
+                                </p>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

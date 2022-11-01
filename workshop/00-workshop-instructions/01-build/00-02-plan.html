@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang=en>
+    <!--#include virtual="/templates/header.html" -->
+    <body>
+        <!--#include virtual="/templates/top-nav.html" -->
+        <div class=off-canvas-wrapper>
+            <div class="grid-container fluid">
+                <div class=grid-x>
+                    <!--#set var="PAGE" value="build" -->
+                    <!--#include virtual="/templates/left-nav.html" -->
+
+                    <div id=main-content class="cell off-canvas-content auto">
+                        <main id=main-content-col tabindex=-1>
+                            <div id=col-content data-swiftype-index=true>
+                                <div id=service-template-data>
+                                    <h1>Habitat Plan(s)</h1>
+                                </div>
+                                <p>
+                                    Application delivery requirements and dependencies are defined in code, and then versioned and packaged alongside the application into a single artifact. 
+                                    This common release library publishes the deployment instructions with the application code, providing a common release library to ensure build consistency 
+                                    across environments.
+                                </p>
+                                <p>
+                                    The published Habitat Artifacts are immutable, and stored in a single-origin that cannot be accessed by humans. 
+                                    This ensures consistency and trust in the build pipeline, because you can rely on the built artifacts behaving the same way 
+                                    in a production scenario that they do in development. This reduction in deployment friction enables your team to focus on providing value, 
+                                    instead of grooming each application according to its specific needs and requirements. 
+                                </p>
+                                <p>
+                                    And the best part? No changes to the application code are needed to build, package, and deploy with Habitat.
+                                    All the data required to build and package your application is contained in the <b>Habitat Plan.</b>
+                                </p>
+                                <h2>Anatomy of the plan file</h2>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+

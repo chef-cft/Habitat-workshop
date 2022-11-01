@@ -1,0 +1,17 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>@Model.VersionMessage</p>
+    <p>@Model.Message</p>
+<form method="post">
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Start Transaction" asp-page-handler="Create" />
+    <input type="submit" value="Complete Transaction" asp-page-handler="Complete" />
+</form>
+    <p><a href="/">Refresh App</a></p>
+</div>
