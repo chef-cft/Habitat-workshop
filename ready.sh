@@ -7,3 +7,4 @@ then
 fi
 
 ##TODO clean all the files that no one should see
+cp ~/systeminfo.txt .

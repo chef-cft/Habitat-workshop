@@ -1,5 +1,7 @@
 cert.pem
 
+systeminfo.txt
+
 obj/
 bin/
 target/
