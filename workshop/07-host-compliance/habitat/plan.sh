@@ -22,7 +22,7 @@ do_build() {
   cp -R ${profile_files[@]} $profile_location
 
   build_line "Archiving $ARCHIVE_PATH"
-  inspec archive "$HAB_CACHE_SRC_PATH/$pkg_dirname/build" -o $ARCHIVE_PATH --overwrite
+  inspec archive "$HAB_CACHE_SRC_PATH/$pkg_dirname/build" --chef-license "accept-no-persist" -o $ARCHIVE_PATH --overwrite
 }
 
 do_install() {

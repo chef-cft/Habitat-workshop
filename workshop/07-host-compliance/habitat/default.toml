@@ -1,5 +1,4 @@
 interval=300
-splay_first_run=30
 
 [chef_license]
 acceptance="accept-no-persist"
