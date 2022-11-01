@@ -1,9 +1,0 @@
-SRC=$(curl localhost:9631/census)
-DATA=$(echo $SRC | grep -Pio -m1 '"member_id":"[^"]*"' | grep -Eo -m1 '[^:]*$')
-
-echo $DATA
-
-#sed -i 's/00000000-0000-0000-0000-000000000000/0ad27d0f-e4d0-434d-9290-a5385b2a0eb1/' {{pkg.svc_config_path}}/inspec_exec_config.json
-sed -i "s/\"00000000-0000-0000-0000-000000000000\"/$DATA/" {{pkg.svc_config_path}}/inspec_exec_config.json
-
-

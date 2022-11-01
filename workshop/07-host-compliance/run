@@ -1,0 +1,55 @@
+#!/hab/pkgs/core/bash/5.1/20220311102415/bin/bash
+
+export HOME="/hab/svc/host_compliance/var"
+export INSPEC_CONFIG_DIR="/hab/svc/host_compliance/var"
+export SSL_CERT_FILE="/hab/pkgs/core/cacerts/2021.10.26/20220311110931/ssl/cert.pem"
+export SSL_CERT_DIR="/hab/pkgs/core/cacerts/2021.10.26/20220311110931/ssl/certs"
+
+CFG_SPLAY_FIRST_RUN=30
+CFG_SPLAY_FIRST_RUN="${CFG_SPLAY_FIRST_RUN:-0}"
+CFG_INTERVAL=300
+CFG_INTERVAL="${CFG_INTERVAL:-1800}"
+CFG_SPLAY=
+CFG_SPLAY="${CFG_SPLAY:-1800}"
+CFG_LOG_LEVEL=
+CFG_LOG_LEVEL="${CFG_LOG_LEVEL:-warn}"
+CFG_CHEF_LICENSE=accept-no-persist
+CFG_CHEF_LICENSE="${CFG_CHEF_LICENSE:-undefined}"
+CONFIG="/hab/svc/host_compliance/config/inspec_exec_config.json"
+WAIVER="/hab/svc/host_compliance/config/waiver.yml"
+INPUTS="/hab/svc/host_compliance/config/inputs.yml"
+PROFILE_PATH="/hab/pkgs/workshop/host_compliance/1.0.0/20221101001349/host_compliance-1.0.0*.tar.gz"
+
+# This function compares the versions of inspec to ensure that
+# the waiver feature is present before building the InSpec command
+function version_gt() { test "$(printf '%s\n' "$@" | sort -V | head -n 1)" != "$1"; }
+inspec_waiver_version=4.17.27
+
+if version_gt "$(inspec --version)" $inspec_waiver_version; then
+  cfg_waiver_cmd="--waiver-file ${WAIVER}"
+else
+  cfg_waiver_cmd=""
+fi
+
+echo ${cfg_waiver_cmd}
+
+inspec_cmd()
+{
+  /hab/pkgs/chef/inspec/5.18.14/20220823064351/bin/inspec exec ${PROFILE_PATH} --config ${CONFIG} ${cfg_waiver_cmd} --input-file ${INPUTS} --chef-license $CFG_CHEF_LICENSE --log-level $CFG_LOG_LEVEL
+}
+
+
+SPLAY_DURATION=$(shuf -i 0-$CFG_SPLAY -n 1)
+SPLAY_FIRST_RUN_DURATION=$(shuf -i 0-$CFG_SPLAY_FIRST_RUN -n 1)
+
+exec 2>&1
+sleep $SPLAY_FIRST_RUN_DURATION
+inspec_cmd
+
+while true; do
+  SLEEP_TIME=$(($SPLAY_DURATION + $CFG_INTERVAL))
+  echo "InSpec is sleeping for $SLEEP_TIME seconds"
+  sleep $SPLAY_DURATION
+  sleep $CFG_INTERVAL
+  inspec_cmd
+done
