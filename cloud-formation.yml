@@ -284,7 +284,7 @@ Resources:
     Properties:
       InstanceType: t3.medium
       KeyName: !Ref 'KeyName'
-      ImageId: 'ami-0f81f3e3c44572175'
+      ImageId: 'ami-020955bfe230c3c6d'
       NetworkInterfaces:
         - GroupSet:
             - !Ref 'JenkinsSG'
@@ -301,9 +301,11 @@ Resources:
         Fn::Base64: |
           #!/bin/bash -xe
           exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
-          PUBLIC_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
-          sed -i "s/172.31.54.8/$PUBLIC_IP/" /etc/gitea/app.ini
           systemctl stop gitea
+          PUBLIC_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+          sed -i -e "s#ROOT_URL.*#ROOT_URL=http://$PUBLIC_IP:3000#" /etc/gitea/app.ini
+          sed -i -e "s#SSH_DOMAIN.*#SSH_DOMAIN=$PUBLIC_IP#" /etc/gitea/app.ini
+          sed -i -e "s#DOMAIN.*#DOMAIN=$PUBLIC_IP#" /etc/gitea/app.ini
           systemctl start gitea
       Tags:
       - Key: Name
