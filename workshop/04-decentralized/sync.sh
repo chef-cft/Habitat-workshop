@@ -26,4 +26,4 @@ file=$(newest_file_matching_pattern artifacts "$HAB_ORIGIN-decentralized*.hart")
 export HAB_AUTH_TOKEN=$SECONDARY_PAT
 hab origin key download -u $LOCAL_BUILDER workshop
 
-hab pkg upload -u $LOCAL_BUILDER -c store-3 "./artifacts/$file"
+hab pkg upload -u $LOCAL_BUILDER -c store-3 "./$file"
