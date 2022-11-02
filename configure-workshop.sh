@@ -21,7 +21,21 @@ cd ..
 
 cd shim
 ./build-all.sh
-./publish-all.sh
+#./publish-all.sh
+cd ..
+
+cd workshop
+
+cd 00-proxy
+build
+./load.sh
+cd ..
+
+cd 00-workshop
+build
+./load.sh
+cd ..
+
 cd ..
 
 exit
