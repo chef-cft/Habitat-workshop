@@ -1,16 +1,19 @@
 {
-    "reporter": {
-      "json" : {
-        "file" : "{{pkg.svc_path}}/results.json",
-        "stdout" : false
-      },
-      "automate" : {
-        "url": "{{cfg.automate.server_url}}/data-collector/v0/",
-        "token": "{{cfg.automate.token}}",
-        "node_name": "{{ sys.hostname }}",
-        "verify_ssl": false,
-        "environment": "{{cfg.automate.environment}}",
-        "node_uuid": "{{cfg.automate.node_uuid}}"
-      }
+  "reporter": {
+    "cli" : {
+      "stdout" : true
+    },
+    "json" : {
+      "file" : "{{pkg.svc_path}}/results.json",
+      "stdout" : false
+    },
+    "automate" : {
+      "url": "{{cfg.automate.server_url}}/data-collector/v0/",
+      "token": "{{cfg.automate.token}}",
+      "node_name": "{{ sys.hostname }}",
+      "verify_ssl": false,
+      "environment": "{{cfg.automate.environment}}",
+      "node_uuid": "{{cfg.automate.node_uuid}}"
     }
+  }
 }
