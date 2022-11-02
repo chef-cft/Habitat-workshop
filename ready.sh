@@ -8,5 +8,5 @@ else
     exit -1
 fi
 
-cp workshop/certs/* /hab/cache/ssl/*
+sudo cp ./certs/* /hab/cache/ssl/
 cp ~/systeminfo.txt .
