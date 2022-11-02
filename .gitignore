@@ -7,6 +7,7 @@ bin/
 target/
 init/artifacts
 init/keys
+workshop/04-decentralized/artifacts
 
 .DS_Store
 .tags*
