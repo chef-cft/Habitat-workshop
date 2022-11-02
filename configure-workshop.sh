@@ -31,7 +31,7 @@ build
 ./load.sh
 cd ..
 
-cd 00-workshop
+cd 00-workshop-instructions
 build
 ./load.sh
 cd ..
