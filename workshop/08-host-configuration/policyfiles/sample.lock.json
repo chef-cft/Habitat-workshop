@@ -1,0 +1,52 @@
+{
+  "revision_id": "52a6f50a482ff7bff44c04058140e830ffaa0a3dcd4a18a2604ae88891b83a90",
+  "name": "sample",
+  "run_list": [
+    "recipe[workshop::default]"
+  ],
+  "included_policy_locks": [
+
+  ],
+  "cookbook_locks": {
+    "workshop": {
+      "version": "0.1.0",
+      "identifier": "fcc345e40ec3033834bc827b33850f05dde8d4e3",
+      "dotted_decimal_identifier": "71146399077417731.15820582943404933.16517872276707",
+      "source": "../cookbooks/workshop",
+      "cache_key": null,
+      "scm_info": {
+        "scm": "git",
+        "remote": "https://github.com/chef-cft/Habitat-workshop.git",
+        "revision": "99fa79040016f2d54287cfacb292266bf8377a89",
+        "working_tree_clean": true,
+        "published": true,
+        "synchronized_remote_branches": [
+          "origin/HEAD -> origin/main",
+          "origin/main"
+        ]
+      },
+      "source_options": {
+        "path": "../cookbooks/workshop"
+      }
+    }
+  },
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "solution_dependencies": {
+    "Policyfile": [
+      [
+        "workshop",
+        ">= 0.0.0"
+      ]
+    ],
+    "dependencies": {
+      "workshop (0.1.0)": [
+
+      ]
+    }
+  }
+}
