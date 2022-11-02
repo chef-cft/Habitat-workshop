@@ -8,6 +8,7 @@ target/
 init/artifacts
 init/keys
 workshop/04-decentralized/artifacts
+workshop/04-decentralized/keys
 
 .DS_Store
 .tags*
