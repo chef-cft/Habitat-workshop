@@ -1,14 +1,16 @@
 #!/bin/bash
 
-if test -z "$STUDIO_TYPE" 
-then
-    echo "must run inside of studio"
-    exit -1
-fi
+. ../env.sh
 
 if test -z "$PRIMARY_DEPOT" 
 then
       echo "\$PRIMARY_DEPOT needs to be set"
+      exit -1
+fi
+
+if test -z "$LOCAL_BUILDER" 
+then
+      echo "\$LOCAL_BUILDER needs to be set"
       exit -1
 fi
 
@@ -18,7 +20,11 @@ then
       exit -1
 fi
 
-echo $PRIMARY_DEPOT
+if test -z "$SECONDARY_PAT" 
+then
+      echo "\$SECONDARY_PAT needs to be set"
+      exit -1
+fi
 
 newest_file_matching_pattern(){ 
     find $1 -name "$2" -print0 | xargs -0 ls -1 -t | head -1  
@@ -32,8 +38,11 @@ cd 00-proxy
     package=${package//"-"/"/"}
     package=${package:1}
 
-    echo $HAB_ORIGIN
+    HAB_AUTH_TOKEN=$PRIMARY_PAT
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
+
+    HAB_AUTH_TOKEN=$SECONDARY_PAT
+    hab pkg upload -u $LOCAL_BUILDER -c stable $file
 cd ..
 
 cd 00-workshop-instructions
@@ -43,6 +52,7 @@ cd 00-workshop-instructions
     package=${package//"-"/"/"}
     package=${package:1}
 
+    HAB_AUTH_TOKEN=$PRIMARY_PAT
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
 cd ..
 
@@ -53,6 +63,7 @@ cd 01-build-and-package
     package=${package//"-"/"/"}
     package=${package:1}
 
+    HAB_AUTH_TOKEN=$PRIMARY_PAT
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
 cd ..
 
@@ -63,6 +74,7 @@ cd 02-deploy-rollback
     package=${package//"-"/"/"}
     package=${package:1}
 
+    HAB_AUTH_TOKEN=$PRIMARY_PAT
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file   
     hab pkg promote -u $PRIMARY_DEPOT $package production
     hab pkg promote -u $PRIMARY_DEPOT $package qa
@@ -76,6 +88,7 @@ cd 03-cots
     package=${package//"-"/"/"}
     package=${package:1}
 
+    HAB_AUTH_TOKEN=$PRIMARY_PAT
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
 cd ..
 
@@ -86,6 +99,7 @@ cd 04-decentralized
     package=${package//"-"/"/"}
     package=${package:1}
 
+    HAB_AUTH_TOKEN=$PRIMARY_PAT
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
     hab pkg promote -u $PRIMARY_DEPOT $package store-1
     hab pkg promote -u $PRIMARY_DEPOT $package store-2
@@ -99,6 +113,7 @@ cd 05-ring
     package=${package//"-"/"/"}
     package=${package:1}
 
+    HAB_AUTH_TOKEN=$PRIMARY_PAT
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
     hab pkg promote -u $PRIMARY_DEPOT $package store-1
     hab pkg promote -u $PRIMARY_DEPOT $package store-2
@@ -112,6 +127,7 @@ cd 06-smart-updates
     package=${package//"-"/"/"}
     package=${package:1}
 
+    HAB_AUTH_TOKEN=$PRIMARY_PAT
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
 cd ..
 
@@ -122,9 +138,9 @@ cd 07-host-compliance
     package=${package//"-"/"/"}
     package=${package:1}
 
+    HAB_AUTH_TOKEN=$PRIMARY_PAT
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
     hab pkg promote -u $PRIMARY_DEPOT $package s1d1
-
 cd ..
 
 cd 08-host-configuration
@@ -134,6 +150,7 @@ cd 08-host-configuration
     package=${package//"-"/"/"}
     package=${package:1}
 
+    HAB_AUTH_TOKEN=$PRIMARY_PAT
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
     hab pkg promote -u $PRIMARY_DEPOT $package s2d1
 
@@ -146,6 +163,7 @@ cd 09-app-compliance
     package=${package//"-"/"/"}
     package=${package:1}
 
+    HAB_AUTH_TOKEN=$PRIMARY_PAT
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
     hab pkg promote -u $PRIMARY_DEPOT $package s3d1
 
@@ -158,6 +176,7 @@ cd 10-jenkins
     package=${package//"-"/"/"}
     package=${package:1}
 
+    HAB_AUTH_TOKEN=$PRIMARY_PAT
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
     hab pkg promote -u $PRIMARY_DEPOT $package production
     hab pkg promote -u $PRIMARY_DEPOT $package qa
