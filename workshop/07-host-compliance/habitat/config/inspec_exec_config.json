@@ -1,5 +1,8 @@
 {
     "reporter": {
+      "cli" : {
+        "stdout" : true
+      },
       "json" : {
         "file" : "{{pkg.svc_path}}/results.json",
         "stdout" : false
