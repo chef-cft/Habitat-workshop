@@ -15,9 +15,9 @@ hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel store-1 --group store1 workshop/ring
 
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel stable --shutdown-timeout 600 workshop/smart_updates
-hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel stable workshop/host_compliance
-hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel stable workshop/host_configuration
-hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel stable workshop/app_compliance
+hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel s1d1 workshop/host_compliance
+hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel s1d1 workshop/host_configuration
+hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel s1d1 workshop/app_compliance
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d1 --channel production workshop/jenkins
 
 ###--------------------------------------------------------------
@@ -32,7 +32,7 @@ hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel store-1 --group store1 workshop/ring
 
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel stable --shutdown-timeout 600 workshop/smart_updates
-hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel stable workshop/host_compliance
-hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel stable workshop/host_configuration
-hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel stable workshop/app_compliance
+hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel s1d2 workshop/host_compliance
+hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel s1d2 workshop/host_configuration
+hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel s1d2 workshop/app_compliance
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s1d2 --channel production workshop/jenkins

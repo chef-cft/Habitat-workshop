@@ -51,7 +51,7 @@
       <script>
       (function countdown(remaining) {
         if(remaining === 0)
-          location.href="/";
+          location.href="index.html";
         document.getElementById('countdown').innerHTML = remaining;
         setTimeout(function(){ countdown(remaining - 1); }, 1000);
       })(10);

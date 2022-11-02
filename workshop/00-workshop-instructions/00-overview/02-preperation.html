@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang=en>
+    <!--#include virtual="/templates/header.html" -->
+    <body>
+        <!--#include virtual="/templates/top-nav.html" -->
+        <div class=off-canvas-wrapper>
+            <div class="grid-container fluid">
+                <div class=grid-x>
+                    <!--#set var="PAGE" value="overview" -->
+                    <!--#include virtual="/templates/left-nav.html" -->
+                
+                    <div id=main-content class="cell off-canvas-content auto">
+                        <main id=main-content-col tabindex=-1>
+                            <div id=col-content data-swiftype-index=true>
+                                <div id=service-template-data>
+                                    <h1>Prepairing your Enviornment</h1>
+                                </div>
+                                <p>
+                                    All workshop enviornments are clean rooms, they are seperated from each other but look identical.
+                                    The workshops are also designed to support multiple scenarios, and a such all of the enviornments are 
+                                    configured to a common minimal standard.
+                                </p>
+                                <p>
+                                    Throught this workshop we will be using Habitat and habitat remote adimistration commands 
+                                    to finish configuring the enviornment. However, before we do that we want to take a few mins
+                                    to prepare your remote workstation for the day.d to prepare your enviornent.
+                                </p>
+                                <p>
+                                    First you will need to open a terminal. 
+                                </p>
+                                <img src="images/02-00-terminal.png" max-height="200px"/>
+                                <p>
+                                    In your terminal you are going to run the following commands
+                                    <ol>
+                                        <li>
+                                            <div class="highlight"><pre><code class="language-bash">cd Habitat-workshop</code></pre></div>
+                                        </li>
+                                        <li>
+                                            <div class="highlight"><pre><code class="language-bash">./ready.sh</code></pre></div>
+                                        </li>
+                                        <li>
+                                            <div class="highlight"><pre><code class="language-bash">hab studio enter</code></pre></div>
+                                        </li>
+                                        <li>
+                                            <div class="highlight"><pre><code class="language-bash">./configure-workshop.sh</code></pre></div>
+                                        </li>
+                                    </ol>
+                                </p>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

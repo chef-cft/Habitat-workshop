@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang=en>
+    <!--#include virtual="/templates/header.html" -->
+    <body>
+        <!--#include virtual="/templates/top-nav.html" -->
+        <div class=off-canvas-wrapper>
+            <div class="grid-container fluid">
+                <div class=grid-x>
+                    <!--#set var="PAGE" value="overview" -->
+                    <!--#include virtual="/templates/left-nav.html" -->
+                
+                    <div id=main-content class="cell off-canvas-content auto">
+                        <main id=main-content-col tabindex=-1>
+                            <div id=col-content data-swiftype-index=true>
+                                <div id=service-template-data>
+                                    <h1>Workshop Design</h1>
+                                </div>
+                                <p>
+                                    The Habitat Edge Management workshop is designed to simulate multiple
+                                    edge management scenarios. The deployment includes
+                                    <ul>
+                                        <li>1x Developer Workstation</li>
+                                        <li>2x Automate Servers w/
+                                            <ul>
+                                                <li>Chef Infra Server</li>
+                                                <li>Habitat Builder</li>
+                                            </ul>
+                                        </li>
+                                        <li>3x Virtual Stores
+                                            <ul>
+                                                <li>Store 1 w/
+                                                    <ul>Store 1 - Device 1</ul>
+                                                    <ul>Store 1 - Device 2</ul>
+                                                </li>
+                                                <li>Store 2 w/
+                                                    <ul>Store 2 - Device 1</ul>
+                                                </li>
+                                                <li>Store 3 w/
+                                                    <ul>Store 3 - Device 1</ul>
+                                                    <ul>Store 3 - Device 2</ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang=en>
+    <!--#include virtual="/templates/header.html" -->
+    <body>
+        <!--#include virtual="/templates/top-nav.html" -->
+        <div class=off-canvas-wrapper>
+            <div class="grid-container fluid">
+                <div class=grid-x>
+                    <!--#set var="PAGE" value="overview" -->
+                    <!--#include virtual="/templates/left-nav.html" -->
+                
+                    <div id=main-content class="cell off-canvas-content auto">
+                        <main id=main-content-col tabindex=-1>
+                            <div id=col-content data-swiftype-index=true>
+                                <div id=service-template-data>
+                                    <h1>Workshop Workstation</h1>
+                                </div>
+                                <div>
+                                    <p>
+                                        Directories:
+                                        <ul>
+                                            <li>
+                                                <b>init</b><br/>
+                                                Initalizes the local Habitat Builder/Depot
+                                                with packages from the Chef Habitat Origin
+                                            </li>
+                                            <li>
+                                                <b>servers</b><br/>
+                                                Performs remote administration on all the Store devices
+                                            </li>
+                                            <li>
+                                                <b>shim</b><br/>
+                                                Contains basic Habitat services packages for each module 
+                                                used to pre-load remote devices with available packages
+                                            </li>
+                                            <li>
+                                                <b>workshop</b><br/>
+                                                Contains the code for each interactive module
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3>Directory ~/Habitat-workshop</h3>
+                                    <p>
+                                        Scripts:
+                                        <ul>
+                                            <li>
+                                                <b>build-cache.sh</b><br/>
+                                                Builds every service in the shim and workshop Directories.
+                                                This allows all the required packages to be downloaded
+                                                reducing the time spent waiting for packages to load during
+                                                each module.
+                                            </li>
+                                            <li>
+                                                <b>configure-demo.sh</b><br/>
+                                                Builds and deploys all the workshop modules to the nodes
+                                            </li>
+                                            <li>
+                                                <b>configure-workshop.sh</b><br/>
+                                                Builds packages and configures the workshop. This will also publish
+                                                and promote the base "shim" packages
+                                            </li>
+                                            <li>
+                                                <b>disable-remote.sh</b><br/>
+                                                Removes enviornment variables allowing you to interact with the local
+                                                habitat supervisor
+                                            </li>
+                                            <li>
+                                                <b>enable-remote.sh</b><br/>
+                                                Sets local enviornment variables allowing you to interact with remote
+                                                habitat supervisors
+                                            </li>
+                                            <li>
+                                                <b>env.sh</b><br/>
+                                                Sets common enviornment variables used by all the modules
+                                            </li>
+                                            <li>
+                                                <b>prep-git.sh</b><br/>
+                                                Connects to and downloads the jenkins module from the local git repo,
+                                                changes the readme, commits and pushes the code. This will then trigger
+                                                the jenkins build. (Note: must be run outside of the habitat studio)
+                                            </li>
+                                            <li>
+                                                <b>purge.sh</b><br/>
+                                                This removes all of the habitat build artifacts from the 
+                                                local package Directories
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3>Directory ~/Habitat-workshop/init</h3>
+                                    <p>
+                                        Scripts:
+                                        <ul>
+                                            <li>
+                                                <b>migrate-chef-origin.sh</b><br/>
+                                                This downloads specific packages from the public Habitat Builder
+                                                from the Chef origin and uploads them to the local Habitat Builder.
+                                                These are required by the effortless modules.
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3>Directory ~/Habitat-workshop/servers</h3>
+                                    <p>
+                                        Scripts:
+                                        <ul>
+                                            <li>
+                                                <b>load.sh</b><br/>
+                                                Will call each of the three (3) scripts in the startup directory
+                                                <ul>
+                                                    <li>
+                                                        <b>startup/store-1.sh</b><br/>
+                                                        Remotely manages habitat to load store 1 (Device 1 and Device 2) services with:
+                                                        <ul>
+                                                            <li>workshop/proxy [stable]</li>
+                                                            <li>workshop/instructions [stable]</li>
+                                                            <li>workshop/build_package [stable]</li>
+                                                            <li>workshop/deploy_rollback [production]</li>
+                                                            <li>workshop/cots [stable]</li>
+                                                            <li>workshop/decentralized [store-1]</li>
+                                                            <li>workshop/ring [store-1] (Group: store1)</li>
+                                                            <li>workshop/smart_updates [stable] (timeout: 600)</li>
+                                                            <li>workshop/host_compliance [s1d1 || s1d2]</li>
+                                                            <li>workshop/host_configuration [s1d1 || s1d2]</li>
+                                                            <li>workshop/app_compliance [s1d1 || s1d2]</li>
+                                                            <li>workshop/jenkins [production]</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <b>startup/store-2.sh</b><br/>
+                                                        Remotely manages habitat to load store 2 (Device 1) services with:
+                                                        <ul>
+                                                            <li>workshop/proxy [stable]</li>
+                                                            <li>workshop/instructions [stable]</li>
+                                                            <li>workshop/build_package [stable]</li>
+                                                            <li>workshop/deploy_rollback [qa]</li>
+                                                            <li>workshop/cots [stable]</li>
+                                                            <li>workshop/decentralized [store-2]</li>
+                                                            <li>workshop/ring [store-2] (Group: store2)</li>
+                                                            <li>workshop/smart_updates [stable] (timeout: 600)</li>
+                                                            <li>workshop/host_compliance [s2d1]</li>
+                                                            <li>workshop/host_configuration [s2d1]</li>
+                                                            <li>workshop/app_compliance [s2d1]</li>
+                                                            <li>workshop/jenkins [qa]</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <b>startup/store-1.sh</b><br/>
+                                                        Remotely manages habitat to load store 3 (Device 1 and Device 2) services with:
+                                                        <ul>
+                                                            <li>workshop/proxy [stable]</li>
+                                                            <li>workshop/instructions [stable]</li>
+                                                            <li>workshop/build_package [stable]</li>
+                                                            <li>workshop/deploy_rollback [dev]</li>
+                                                            <li>workshop/cots [stable]</li>
+                                                            <li>workshop/decentralized [store-3]</li>
+                                                            <li>workshop/ring [store-3] (Group: store3)</li>
+                                                            <li>workshop/smart_updates [stable] (timeout: 600)</li>
+                                                            <li>workshop/host_compliance [s3d1 || s3d2]</li>
+                                                            <li>workshop/host_configuration [s3d1 || s3d2]</li>
+                                                            <li>workshop/app_compliance [s3d1 || s3d2]</li>
+                                                            <li>workshop/jenkins [dev]</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <b>unload.sh</b><br/>
+                                                Will call each of the three (3) scripts in the shutdown directory
+                                                <ul>
+                                                    <li>
+                                                        <b>shutdown/store-1.sh</b><br/>
+                                                        Unloads all habitat services from Store 1 (Device 1 and Device 2)
+                                                    </li>
+                                                    <li>
+                                                        <b>shutdown/store-2.sh</b><br/>
+                                                        Unloads all habitat services from Store 1 (Device 1)
+                                                    </li>
+                                                    <li>
+                                                        <b>shutdown/store-3.sh</b><br/>
+                                                        Unloads all habitat services from Store 3 (Device 1 and Device 2)
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3>Directory ~/Habitat-workshop/workshop</h3>
+                                    <p>
+                                        Scripts:
+                                        <ul>
+                                            <li>
+                                                <b>build-all.sh</b><br/>
+                                            </li>
+                                            <li>
+                                                <b>load-all.sh</b><br/>
+                                            </li>
+                                            <li>
+                                                <b>publish-all.sh</b><br/>
+                                            </li>
+                                            <li>
+                                                <b>unload-all.sh</b><br/>
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3>Directory ~/Habitat-workshop/workshop/*/</h3>
+                                    <p>
+                                        Each workshop directory contains the same scripts:
+                                        <ul>
+                                            <li>
+                                                <b>demote.sh</b><br/>
+                                                Removes a channel from the latest build (if it has been published)
+                                            </li>
+                                            <li>
+                                                <b>load.sh</b><br/>
+                                                Loads your local packages to your local Habitat Supervisor
+                                            </li>
+                                            <li>
+                                                <b>promote.sh</b><br/>
+                                                Adds a channel to the latest build (if it has been published)
+                                            </li>
+                                            <li>
+                                                <b>publish.sh</b><br/>
+                                                Publishes the latest build to the remote builder
+                                            </li>
+                                            <li>
+                                                <b>unload.sh</b><br/>
+                                                Unloads your local packages from your local Habitat Supervisor
+                                            </li>
+                                        </ul>
+                                        <small>Please note some modules may have additional module specific scripts</small>
+                                    </p>
+                                </div>                                
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

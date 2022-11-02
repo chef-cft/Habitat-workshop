@@ -123,6 +123,8 @@ cd 07-host-compliance
     package=${package:1}
 
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
+    hab pkg promote -u $PRIMARY_DEPOT $package s1d1
+
 cd ..
 
 cd 08-host-configuration
@@ -133,6 +135,8 @@ cd 08-host-configuration
     package=${package:1}
 
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
+    hab pkg promote -u $PRIMARY_DEPOT $package s2d1
+
 cd ..
 
 cd 09-app-compliance
@@ -143,6 +147,8 @@ cd 09-app-compliance
     package=${package:1}
 
     hab pkg upload -u $PRIMARY_DEPOT -c stable $file
+    hab pkg promote -u $PRIMARY_DEPOT $package s3d1
+
 cd ..
 
 cd 10-jenkins
