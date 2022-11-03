@@ -12,8 +12,8 @@ hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s3d1 --channel stable workshop/build_package
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s3d1 --channel dev workshop/deploy_rollback
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s3d1 --channel stable workshop/cots
-#hab svc load --url $LOCAL_BUILDER   --strategy at-once --update-condition track-channel --remote-sup s3d1 --channel store-3 workshop/decentralized
-hab svc load --url $PRIMARY_BUILDER   --strategy at-once --update-condition track-channel --remote-sup s3d1 --channel store-3 workshop/decentralized
+hab svc load --url $LOCAL_BUILDER   --strategy at-once --update-condition track-channel --remote-sup s3d1 --channel store-3 workshop/decentralized
+#hab svc load --url $PRIMARY_BUILDER   --strategy at-once --update-condition track-channel --remote-sup s3d1 --channel store-3 workshop/decentralized
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s3d1 --channel store-3 --group store3 workshop/ring
 
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s3d1 --channel stable --shutdown-timeout 600 workshop/smart_updates
@@ -30,8 +30,8 @@ hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s3d2 --channel stable workshop/build_package
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s3d2 --channel dev workshop/deploy_rollback
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s3d2 --channel stable workshop/cots
-#hab svc load --url $LOCAL_BUILDER   --strategy at-once --update-condition track-channel --remote-sup s3d2 --channel store-3 workshop/decentralized
-hab svc load --url $PRIMARY_BUILDER   --strategy at-once --update-condition track-channel --remote-sup s3d2 --channel store-3 workshop/decentralized
+hab svc load --url $LOCAL_BUILDER   --strategy at-once --update-condition track-channel --remote-sup s3d2 --channel store-3 workshop/decentralized
+#hab svc load --url $PRIMARY_BUILDER   --strategy at-once --update-condition track-channel --remote-sup s3d2 --channel store-3 workshop/decentralized
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s3d2 --channel store-3 --group store3 workshop/ring
 
 hab svc load --url $PRIMARY_BUILDER --strategy at-once --update-condition track-channel --remote-sup s3d2 --channel stable --shutdown-timeout 600 workshop/smart_updates
