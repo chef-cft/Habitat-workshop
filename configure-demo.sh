@@ -6,6 +6,7 @@ then
     exit -1
 fi
 
+sudo cp ./certs/* /hab/cache/ssl/
 
 find . -type f -iname "*.sh" -exec chmod +x {} \;
 
