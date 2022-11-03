@@ -1,4 +1,5 @@
 #!/bin/bash
+. ../../env.sh
 
 if test -z "$PRIMARY_DEPOT" 
 then
