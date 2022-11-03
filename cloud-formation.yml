@@ -358,6 +358,32 @@ Resources:
                 [Install]
                 WantedBy=default.target
                 EOT
+                cat <<EOT>> /hab/cache/ssl/ip-172-31-54-7.cert
+                -----BEGIN CERTIFICATE-----
+                MIIEBTCCAu2gAwIBAgIQF5XKPpqGN0QxgRzHGRlOzzANBgkqhkiG9w0BAQsFADBx
+                MQswCQYDVQQGEwJVUzEWMBQGA1UEChMNQ2hlZiBTb2Z0d2FyZTEWMBQGA1UECxMN
+                Q2hlZiBBdXRvbWF0ZTEyMDAGA1UEAxMpaXAtMTcyLTMxLTU0LTcudXMtd2VzdC0y
+                LmNvbXB1dGUuaW50ZXJuYWwwHhcNMjIxMDI2MTU0NzQ3WhcNMzIxMDIzMTU0NzQ3
+                WjBxMQswCQYDVQQGEwJVUzEWMBQGA1UEChMNQ2hlZiBTb2Z0d2FyZTEWMBQGA1UE
+                CxMNQ2hlZiBBdXRvbWF0ZTEyMDAGA1UEAxMpaXAtMTcyLTMxLTU0LTcudXMtd2Vz
+                dC0yLmNvbXB1dGUuaW50ZXJuYWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+                AoIBAQCh198QXfDw3gPjW2QHthYv+COvCBJMeEqC+Y/lqatSFcD8L7nZKRvXvAB2
+                1voVw+dkfi1uBFymZbVrOZguFkpcKjwn08zT1Er5sVuQ5i4ANFMP7wMPgFSK4XXw
+                EOA8WFDcriQcKH1juPYewebJvdDxIqkAyNOXNvlCuLsENZHJN4PVtOrwrLP4gkGA
+                DQGc0PnSdvSAPBTuxqUgjvS11RTFrwPv1OZTCclQkiOV+ykBEMO7fBeEgb0NoGal
+                45OT2er2+BS+yzjKgVAeOurcWf5gMHw8ijaS3N/CG763mPItwOZoj4jZfpB7fRnT
+                4NB4Fd3sGz/5dkDf/zDD1jm4Jj/BAgMBAAGjgZgwgZUwDgYDVR0PAQH/BAQDAgKk
+                MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAPBgNVHRMBAf8EBTADAQH/
+                MB0GA1UdDgQWBBSEw+ROswtW1c5OiEeb2xvKfJWESTA0BgNVHREELTArgilpcC0x
+                NzItMzEtNTQtNy51cy13ZXN0LTIuY29tcHV0ZS5pbnRlcm5hbDANBgkqhkiG9w0B
+                AQsFAAOCAQEALmnKZ82rm6NqZXqINRLBh66q9w3DveOeGgrRVT5aa04csyxcL7v0
+                u5zKh14q0Q9W7KWNQYdMVLtP0kVuoA/a+vcB4ZvOPZoIylEJ0qIVH1ozfxLH23fF
+                /3C0I3Lh3eXW37O1dXgwvq7IDHd6X2ZowlDTZYZCV80+nvbWz6YVba3xYClKtsqF
+                tW6Hzci2z11E40EMIDxE5Rx5lJ+lcGgWbv/1j1RHiIZXJ7Cs1zhqe7r42n23y+Tr
+                Uwz1+5G6CQnIxzsoKhmAeKSnzt0ZVhxiRwOKzQBFnWhIQwBGRy6C0i7KDDhO9zir
+                epNXho1ZJVY3XK7vJgNIclAdyFpdvyjnDQ==
+                -----END CERTIFICATE-----
+                EOT
                 rm -rf /hab/svc/
                 rm /hab/sup/default/MEMBER_ID
                 rm -rf /hab/sup/default/data
@@ -407,6 +433,32 @@ Resources:
                 ExecStart=/bin/hab sup run --listen-ctl=0.0.0.0:9632 --event-stream-application="POS" --event-stream-environment="production" --event-stream-site="Store 1" --event-stream-url="${automate}:4222" --event-stream-token="E2bCL2WgfBqyo_lw8M-2OWm8WT0=" --permanent-peer --peer=172.31.54.11 --peer=172.31.54.12 --peer=172.31.54.21 --peer=172.31.54.31 --peer=172.31.54.32
                 [Install]
                 WantedBy=default.target
+                EOT
+                cat <<EOT>> /hab/cache/ssl/ip-172-31-54-7.cert
+                -----BEGIN CERTIFICATE-----
+                MIIEBTCCAu2gAwIBAgIQF5XKPpqGN0QxgRzHGRlOzzANBgkqhkiG9w0BAQsFADBx
+                MQswCQYDVQQGEwJVUzEWMBQGA1UEChMNQ2hlZiBTb2Z0d2FyZTEWMBQGA1UECxMN
+                Q2hlZiBBdXRvbWF0ZTEyMDAGA1UEAxMpaXAtMTcyLTMxLTU0LTcudXMtd2VzdC0y
+                LmNvbXB1dGUuaW50ZXJuYWwwHhcNMjIxMDI2MTU0NzQ3WhcNMzIxMDIzMTU0NzQ3
+                WjBxMQswCQYDVQQGEwJVUzEWMBQGA1UEChMNQ2hlZiBTb2Z0d2FyZTEWMBQGA1UE
+                CxMNQ2hlZiBBdXRvbWF0ZTEyMDAGA1UEAxMpaXAtMTcyLTMxLTU0LTcudXMtd2Vz
+                dC0yLmNvbXB1dGUuaW50ZXJuYWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+                AoIBAQCh198QXfDw3gPjW2QHthYv+COvCBJMeEqC+Y/lqatSFcD8L7nZKRvXvAB2
+                1voVw+dkfi1uBFymZbVrOZguFkpcKjwn08zT1Er5sVuQ5i4ANFMP7wMPgFSK4XXw
+                EOA8WFDcriQcKH1juPYewebJvdDxIqkAyNOXNvlCuLsENZHJN4PVtOrwrLP4gkGA
+                DQGc0PnSdvSAPBTuxqUgjvS11RTFrwPv1OZTCclQkiOV+ykBEMO7fBeEgb0NoGal
+                45OT2er2+BS+yzjKgVAeOurcWf5gMHw8ijaS3N/CG763mPItwOZoj4jZfpB7fRnT
+                4NB4Fd3sGz/5dkDf/zDD1jm4Jj/BAgMBAAGjgZgwgZUwDgYDVR0PAQH/BAQDAgKk
+                MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAPBgNVHRMBAf8EBTADAQH/
+                MB0GA1UdDgQWBBSEw+ROswtW1c5OiEeb2xvKfJWESTA0BgNVHREELTArgilpcC0x
+                NzItMzEtNTQtNy51cy13ZXN0LTIuY29tcHV0ZS5pbnRlcm5hbDANBgkqhkiG9w0B
+                AQsFAAOCAQEALmnKZ82rm6NqZXqINRLBh66q9w3DveOeGgrRVT5aa04csyxcL7v0
+                u5zKh14q0Q9W7KWNQYdMVLtP0kVuoA/a+vcB4ZvOPZoIylEJ0qIVH1ozfxLH23fF
+                /3C0I3Lh3eXW37O1dXgwvq7IDHd6X2ZowlDTZYZCV80+nvbWz6YVba3xYClKtsqF
+                tW6Hzci2z11E40EMIDxE5Rx5lJ+lcGgWbv/1j1RHiIZXJ7Cs1zhqe7r42n23y+Tr
+                Uwz1+5G6CQnIxzsoKhmAeKSnzt0ZVhxiRwOKzQBFnWhIQwBGRy6C0i7KDDhO9zir
+                epNXho1ZJVY3XK7vJgNIclAdyFpdvyjnDQ==
+                -----END CERTIFICATE-----
                 EOT
                 rm -rf /hab/svc/
                 rm /hab/sup/default/MEMBER_ID
@@ -458,6 +510,32 @@ Resources:
                 [Install]
                 WantedBy=default.target
                 EOT
+                cat <<EOT>> /hab/cache/ssl/ip-172-31-54-7.cert
+                -----BEGIN CERTIFICATE-----
+                MIIEBTCCAu2gAwIBAgIQF5XKPpqGN0QxgRzHGRlOzzANBgkqhkiG9w0BAQsFADBx
+                MQswCQYDVQQGEwJVUzEWMBQGA1UEChMNQ2hlZiBTb2Z0d2FyZTEWMBQGA1UECxMN
+                Q2hlZiBBdXRvbWF0ZTEyMDAGA1UEAxMpaXAtMTcyLTMxLTU0LTcudXMtd2VzdC0y
+                LmNvbXB1dGUuaW50ZXJuYWwwHhcNMjIxMDI2MTU0NzQ3WhcNMzIxMDIzMTU0NzQ3
+                WjBxMQswCQYDVQQGEwJVUzEWMBQGA1UEChMNQ2hlZiBTb2Z0d2FyZTEWMBQGA1UE
+                CxMNQ2hlZiBBdXRvbWF0ZTEyMDAGA1UEAxMpaXAtMTcyLTMxLTU0LTcudXMtd2Vz
+                dC0yLmNvbXB1dGUuaW50ZXJuYWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+                AoIBAQCh198QXfDw3gPjW2QHthYv+COvCBJMeEqC+Y/lqatSFcD8L7nZKRvXvAB2
+                1voVw+dkfi1uBFymZbVrOZguFkpcKjwn08zT1Er5sVuQ5i4ANFMP7wMPgFSK4XXw
+                EOA8WFDcriQcKH1juPYewebJvdDxIqkAyNOXNvlCuLsENZHJN4PVtOrwrLP4gkGA
+                DQGc0PnSdvSAPBTuxqUgjvS11RTFrwPv1OZTCclQkiOV+ykBEMO7fBeEgb0NoGal
+                45OT2er2+BS+yzjKgVAeOurcWf5gMHw8ijaS3N/CG763mPItwOZoj4jZfpB7fRnT
+                4NB4Fd3sGz/5dkDf/zDD1jm4Jj/BAgMBAAGjgZgwgZUwDgYDVR0PAQH/BAQDAgKk
+                MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAPBgNVHRMBAf8EBTADAQH/
+                MB0GA1UdDgQWBBSEw+ROswtW1c5OiEeb2xvKfJWESTA0BgNVHREELTArgilpcC0x
+                NzItMzEtNTQtNy51cy13ZXN0LTIuY29tcHV0ZS5pbnRlcm5hbDANBgkqhkiG9w0B
+                AQsFAAOCAQEALmnKZ82rm6NqZXqINRLBh66q9w3DveOeGgrRVT5aa04csyxcL7v0
+                u5zKh14q0Q9W7KWNQYdMVLtP0kVuoA/a+vcB4ZvOPZoIylEJ0qIVH1ozfxLH23fF
+                /3C0I3Lh3eXW37O1dXgwvq7IDHd6X2ZowlDTZYZCV80+nvbWz6YVba3xYClKtsqF
+                tW6Hzci2z11E40EMIDxE5Rx5lJ+lcGgWbv/1j1RHiIZXJ7Cs1zhqe7r42n23y+Tr
+                Uwz1+5G6CQnIxzsoKhmAeKSnzt0ZVhxiRwOKzQBFnWhIQwBGRy6C0i7KDDhO9zir
+                epNXho1ZJVY3XK7vJgNIclAdyFpdvyjnDQ==
+                -----END CERTIFICATE-----
+                EOT
                 rm -rf /hab/svc/
                 rm /hab/sup/default/MEMBER_ID
                 rm -rf /hab/sup/default/data
@@ -508,6 +586,32 @@ Resources:
                 [Install]
                 WantedBy=default.target
                 EOT
+                cat <<EOT>> /hab/cache/ssl/ip-172-31-54-7.cert
+                -----BEGIN CERTIFICATE-----
+                MIIEBTCCAu2gAwIBAgIQF5XKPpqGN0QxgRzHGRlOzzANBgkqhkiG9w0BAQsFADBx
+                MQswCQYDVQQGEwJVUzEWMBQGA1UEChMNQ2hlZiBTb2Z0d2FyZTEWMBQGA1UECxMN
+                Q2hlZiBBdXRvbWF0ZTEyMDAGA1UEAxMpaXAtMTcyLTMxLTU0LTcudXMtd2VzdC0y
+                LmNvbXB1dGUuaW50ZXJuYWwwHhcNMjIxMDI2MTU0NzQ3WhcNMzIxMDIzMTU0NzQ3
+                WjBxMQswCQYDVQQGEwJVUzEWMBQGA1UEChMNQ2hlZiBTb2Z0d2FyZTEWMBQGA1UE
+                CxMNQ2hlZiBBdXRvbWF0ZTEyMDAGA1UEAxMpaXAtMTcyLTMxLTU0LTcudXMtd2Vz
+                dC0yLmNvbXB1dGUuaW50ZXJuYWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+                AoIBAQCh198QXfDw3gPjW2QHthYv+COvCBJMeEqC+Y/lqatSFcD8L7nZKRvXvAB2
+                1voVw+dkfi1uBFymZbVrOZguFkpcKjwn08zT1Er5sVuQ5i4ANFMP7wMPgFSK4XXw
+                EOA8WFDcriQcKH1juPYewebJvdDxIqkAyNOXNvlCuLsENZHJN4PVtOrwrLP4gkGA
+                DQGc0PnSdvSAPBTuxqUgjvS11RTFrwPv1OZTCclQkiOV+ykBEMO7fBeEgb0NoGal
+                45OT2er2+BS+yzjKgVAeOurcWf5gMHw8ijaS3N/CG763mPItwOZoj4jZfpB7fRnT
+                4NB4Fd3sGz/5dkDf/zDD1jm4Jj/BAgMBAAGjgZgwgZUwDgYDVR0PAQH/BAQDAgKk
+                MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAPBgNVHRMBAf8EBTADAQH/
+                MB0GA1UdDgQWBBSEw+ROswtW1c5OiEeb2xvKfJWESTA0BgNVHREELTArgilpcC0x
+                NzItMzEtNTQtNy51cy13ZXN0LTIuY29tcHV0ZS5pbnRlcm5hbDANBgkqhkiG9w0B
+                AQsFAAOCAQEALmnKZ82rm6NqZXqINRLBh66q9w3DveOeGgrRVT5aa04csyxcL7v0
+                u5zKh14q0Q9W7KWNQYdMVLtP0kVuoA/a+vcB4ZvOPZoIylEJ0qIVH1ozfxLH23fF
+                /3C0I3Lh3eXW37O1dXgwvq7IDHd6X2ZowlDTZYZCV80+nvbWz6YVba3xYClKtsqF
+                tW6Hzci2z11E40EMIDxE5Rx5lJ+lcGgWbv/1j1RHiIZXJ7Cs1zhqe7r42n23y+Tr
+                Uwz1+5G6CQnIxzsoKhmAeKSnzt0ZVhxiRwOKzQBFnWhIQwBGRy6C0i7KDDhO9zir
+                epNXho1ZJVY3XK7vJgNIclAdyFpdvyjnDQ==
+                -----END CERTIFICATE-----
+                EOT
                 rm -rf /hab/svc/
                 rm /hab/sup/default/MEMBER_ID
                 rm -rf /hab/sup/default/data
@@ -557,6 +661,32 @@ Resources:
                 ExecStart=/bin/hab sup run --listen-ctl=0.0.0.0:9632 --event-stream-application="POS" --event-stream-environment="production" --event-stream-site="Store 3" --event-stream-url="${automate}:4222" --event-stream-token="E2bCL2WgfBqyo_lw8M-2OWm8WT0=" --permanent-peer --peer=172.31.54.11 --peer=172.31.54.12 --peer=172.31.54.21 --peer=172.31.54.31 --peer=172.31.54.32
                 [Install]
                 WantedBy=default.target
+                EOT
+                cat <<EOT>> /hab/cache/ssl/ip-172-31-54-7.cert
+                -----BEGIN CERTIFICATE-----
+                MIIEBTCCAu2gAwIBAgIQF5XKPpqGN0QxgRzHGRlOzzANBgkqhkiG9w0BAQsFADBx
+                MQswCQYDVQQGEwJVUzEWMBQGA1UEChMNQ2hlZiBTb2Z0d2FyZTEWMBQGA1UECxMN
+                Q2hlZiBBdXRvbWF0ZTEyMDAGA1UEAxMpaXAtMTcyLTMxLTU0LTcudXMtd2VzdC0y
+                LmNvbXB1dGUuaW50ZXJuYWwwHhcNMjIxMDI2MTU0NzQ3WhcNMzIxMDIzMTU0NzQ3
+                WjBxMQswCQYDVQQGEwJVUzEWMBQGA1UEChMNQ2hlZiBTb2Z0d2FyZTEWMBQGA1UE
+                CxMNQ2hlZiBBdXRvbWF0ZTEyMDAGA1UEAxMpaXAtMTcyLTMxLTU0LTcudXMtd2Vz
+                dC0yLmNvbXB1dGUuaW50ZXJuYWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+                AoIBAQCh198QXfDw3gPjW2QHthYv+COvCBJMeEqC+Y/lqatSFcD8L7nZKRvXvAB2
+                1voVw+dkfi1uBFymZbVrOZguFkpcKjwn08zT1Er5sVuQ5i4ANFMP7wMPgFSK4XXw
+                EOA8WFDcriQcKH1juPYewebJvdDxIqkAyNOXNvlCuLsENZHJN4PVtOrwrLP4gkGA
+                DQGc0PnSdvSAPBTuxqUgjvS11RTFrwPv1OZTCclQkiOV+ykBEMO7fBeEgb0NoGal
+                45OT2er2+BS+yzjKgVAeOurcWf5gMHw8ijaS3N/CG763mPItwOZoj4jZfpB7fRnT
+                4NB4Fd3sGz/5dkDf/zDD1jm4Jj/BAgMBAAGjgZgwgZUwDgYDVR0PAQH/BAQDAgKk
+                MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAPBgNVHRMBAf8EBTADAQH/
+                MB0GA1UdDgQWBBSEw+ROswtW1c5OiEeb2xvKfJWESTA0BgNVHREELTArgilpcC0x
+                NzItMzEtNTQtNy51cy13ZXN0LTIuY29tcHV0ZS5pbnRlcm5hbDANBgkqhkiG9w0B
+                AQsFAAOCAQEALmnKZ82rm6NqZXqINRLBh66q9w3DveOeGgrRVT5aa04csyxcL7v0
+                u5zKh14q0Q9W7KWNQYdMVLtP0kVuoA/a+vcB4ZvOPZoIylEJ0qIVH1ozfxLH23fF
+                /3C0I3Lh3eXW37O1dXgwvq7IDHd6X2ZowlDTZYZCV80+nvbWz6YVba3xYClKtsqF
+                tW6Hzci2z11E40EMIDxE5Rx5lJ+lcGgWbv/1j1RHiIZXJ7Cs1zhqe7r42n23y+Tr
+                Uwz1+5G6CQnIxzsoKhmAeKSnzt0ZVhxiRwOKzQBFnWhIQwBGRy6C0i7KDDhO9zir
+                epNXho1ZJVY3XK7vJgNIclAdyFpdvyjnDQ==
+                -----END CERTIFICATE-----
                 EOT
                 rm -rf /hab/svc/
                 rm /hab/sup/default/MEMBER_ID
