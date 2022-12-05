@@ -1,0 +1,13 @@
+{
+    "codes":[
+        {"code": "10", "amount": 0.10 },
+        {"code": "20", "amount": 0.20 },
+        {"code": "30", "amount": 0.30 },
+        {"code": "40", "amount": 0.40 },
+        {"code": "50", "amount": 0.50 },
+        {"code": "60", "amount": 0.60 },
+        {"code": "70", "amount": 0.70 },
+        {"code": "80", "amount": 0.80 },
+        {"code": "90", "amount": 0.90 }
+    ]
+}

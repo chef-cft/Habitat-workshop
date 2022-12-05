@@ -1,0 +1,62 @@
+@page
+
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="breadcrumb__text">
+                    <h2>Edge Configuration</h2>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="breadcrumb__links">
+                    <a href="/">Home</a>
+                    <span>Configuration / Chef (Infra)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="shop spad">
+    <div class="container">
+        <div class="shop__option">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="shop__option__search">
+                        <span>Type: &nbsp;</span>                         
+                        <select id="ddConfig-Type">
+                            <option value="_HostConfigApiEndPoint">Host</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="shop__option__search">
+                        <span>Reports: &nbsp;</span> 
+                        <select id="ddConfig-Report-Type">
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <button type="submit" id="btnToggleConfig" class="site-btn">TOGGLE</button> 
+                    <button type="submit" id="btnManualRunConfig" class="site-btn" style="background-color: orange; display:none">RUN</button>
+                </div>
+                <div class="col-lg-4">
+                    Engine: <span id="config-engine"></span> <br/>
+                    Duration: <span id="config-duration"></span> <br/>
+                    Status: <span id="config-status"></span> <br/>
+                    Last Run: <span id="config-last-run"></span> <br/>
+                    Next Run: <span id="config-next-run"></span> <br/>
+                </div>
+
+            </div>
+            <div class="row">
+                <br/>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" id="config-report">
+                </div>           
+            </div>           
+        </div>           
+    </div>
+</section>

@@ -1,0 +1,7 @@
+{
+    "codes":[
+        {"code": "25", "amount": 0.25 },
+        {"code": "50", "amount": 0.50 },
+        {"code": "free", "amount": 1.0 }
+    ]
+}

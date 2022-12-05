@@ -1,0 +1,15 @@
+{
+  "reporter": {
+    "cli" : {
+      "stdout" : true
+    },
+    "documentation" : {
+      "file" : "{{pkg.svc_path}}/output/results.txt",
+      "stdout" : false
+    },
+    "html2" : {
+      "file" : "{{pkg.svc_path}}/output/results.html",
+      "stdout" : false
+    }
+  }
+}

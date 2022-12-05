@@ -1,0 +1,13 @@
+#settings.json settings
+storeId = 1234
+catalog = "default"
+taxRate = 0.065
+discount = true
+
+[[codes]]
+code = "10%"
+amount = 0.10
+
+[[codes]]
+code = "free"
+amount = 1.00

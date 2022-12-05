@@ -1,0 +1,71 @@
+﻿@page
+
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="breadcrumb__text">
+                    <h2>Node</h2>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="breadcrumb__links">
+                    <a href="/">Home</a>
+                    <span>Habitat Node Details</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="shop spad">
+    <div class="container">
+        <div class="shop__option">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="shop__option__search">
+                        <span>Node: &nbsp;</span>
+                        <select id="node-svc-details">
+                            <option value="/packages">Packages</option>
+                            <option value="/">Service Status</option>
+                            <option value="/versions">Service Versions</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="shop__option__search">
+                        <span>Services: &nbsp;</span>
+                        <select id="habitat-svc-details">
+                            <option value="kiosk_proxy">NGINX Proxy</option>
+                            <option value="kiosk_ui">Kiosk UI</option>
+                            <option value="kiosk_cart">Self Service Cart</option>
+                            <option value="kiosk_processor">Order/Kitchen Processor</option>
+                            <option value="kiosk_store">Store Configuration</option>
+                            <option value="kiosk_inventory">Stock/Inventory</option>
+                            <option value="kiosk_meta">Server Metadata</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <br/>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4 id="node-svc-title"></h4>
+                    <br/>
+                    <div class="json">
+                        <div class="root" id="node-svc-json"></div>
+                    </div>
+                </div>           
+                <div class="col-lg-6">
+                    <h4 id="habitat-svc-title"></h4>
+                    <br/>
+                    <div class="json">
+                        <div class="root" id="habitat-svc-json"></div>
+                    </div>         
+                </div>           
+            </div>           
+        </div>           
+    </div>
+</section>

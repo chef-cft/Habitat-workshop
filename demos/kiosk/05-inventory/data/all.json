@@ -1,0 +1,171 @@
+[
+    {
+        "id": 301,
+        "title": "Grilled Chicken Sandwich",
+        "description": "Marinated chicken breasts are grilled to tender perfection and topped with a quick honey mustard sauce and garden-fresh toppings",
+        "price": 3.25,
+        "image": "chicken-1.png",
+        "category": "chicken"
+    },
+    {
+        "id": 302,
+        "title": "Fried Chicken Sandwich",
+        "description": "This fried chicken sandwich is ultra crispy on the outside, tender & juicy on the inside and bursting with flavour all over!",
+        "price": 3.25,
+        "image": "chicken-2.png",
+        "category": "chicken"
+    },
+    {
+        "id": 401,
+        "title": "Rotini Fiorentina",
+        "description": "A comforting pasta dish with an incredibly flavorful creamy tomato sauce and lots of mozzarella.",
+        "price": 3.25,
+        "image": "pasta-1.png",
+        "category": "pasta"
+    }, 
+    {
+        "id": 402,
+        "title": "Mediterranean Pasta Salad",
+        "description": "This fresh pasta is tossed in a tangy vinaigrette & filled with veggies.",
+        "price": 3.25,
+        "image": "pasta-2.png",
+        "category": "pasta sides"
+    },
+    {
+        "id": 501,
+        "title": "BBQ Chicken Pizza",
+        "description": "Sweet BBQ sauce, chopped chicken, red onions, a dash of cilantro, and tons of cheese.",
+        "price": 3.25,
+        "image": "pizza-1.png",
+        "category": "pizza"
+    },
+    {
+        "id": 502,
+        "title": "Personal Pizza",
+        "description": "Building your own pizzas and tailor it fit your, dietary need, taste preference etc.",
+        "price": 3.25,
+        "image": "pizza-2.png",
+        "category": "pizza"
+    },
+    {
+        "id": 503,
+        "title": "Vegan/Gluteen Free Mediterranean Pizza",
+        "description": "Made with spinach, black olives, artichokes, red onion, and crumbled feta, this pizza is full of flavor. Vegetarian, gluteen free and purely delicious",
+        "price": 3.25,
+        "image": "pizza-3.png",
+        "category": "pizza"
+    },
+    {
+        "id": 601,
+        "title": "All American Cheese Burger",
+        "description": "American cheese with lettuce, tomato, onions, pickles, catsup, mayonaise and a free 1/2 pound ground chuck patty",
+        "price": 3.25,
+        "image": "burger-1.png",
+        "category": "burger"
+    },
+    {
+        "id": 902,
+        "title": "Dutch French Fries",
+        "description": "These are not your typical fries, they are broad, strong, and a little chunky.",
+        "price": 3.25,
+        "image": "fries-1.png",
+        "category": "fries sides"
+    },
+    {
+        "id": 100,
+        "title": "Pumpkin Spice - Cupcake",
+        "description": "These hearty pumpkin cupcakes are topped with a cinnamon cream cheese frosting. Delicious in the fall for a tasty treat.",
+        "price": 3.25,
+        "image": "cake-1.jpg",
+        "category": "cake"
+    },
+    {
+        "id": 102,
+        "title": "Cookies and Cream - Cupcake",
+        "description": "These Oreo cupcakes will melt in your mouth and that cookies and cream frosting on top is nearly too good too be true.",
+        "price": 3.25,
+        "image": "cake-2.jpg",
+        "category": "cake"
+    },
+    {
+        "id": 103,
+        "title": "Muddy Buddy Cupcakes - Cupcake",
+        "description": "These chocolate peanut butter cupcakes are a perfect reliable gourmet cupcake recipe.",
+        "price": 3.25,
+        "image": "cake-3.jpg",
+        "category": "cake"
+    },
+    {
+        "id": 104,
+        "title": "Funfetti - Cupcake",
+        "description": "These fancy cupcakes have a surprise inside and frosting with sprinkles on top!",
+        "price": 3.00,
+        "image": "cake-4.jpg",
+        "category": "cake"
+    },
+    {
+        "id": 105,
+        "title": "Vanilla Salted Carmel - Cupcake",
+        "description": "The center is made from melted salted caramel and then topped with a beautiful buttercream",
+        "price": 3.50,
+        "image": "cake-5.jpg",
+        "category": "cake"
+    },
+    {
+        "id": 106,
+        "title": "Red White and Blue - Cupcake",
+        "description": "We fill this vanilla cupcake with berry goodness and top it with raspberry fluff icing.",
+        "price": 3.20,        
+        "image": "cake-6.jpg",
+        "category": "cake"
+    },
+    {
+        "id": 107,
+        "title": "Red Velvet - Cupcake",
+        "description": "These are dessert decadence featuring a golden oreo in the middle of red velvet cake and topped with white icing for a stunning finish.",
+        "price": 3.25,
+        "image": "cake-7.jpg",
+        "category": "cake"
+    },
+    {
+        "id": 108,
+        "title": "Mississippi Mud - Cupcake",
+        "description": "Luscious decadent chocolate cake filled with smooth chocolate fudge, topped with velvety chocolate frosting and real chocolate pieces.",
+        "price": 3.25,
+        "image": "cake-8.jpg",
+        "category": "cake"
+    },
+    {
+        "id": 109,
+        "title": "Vegan/Gluten Free Vanilla - Cupcake",
+        "description": "It marries the flavors of orange and cranberry in a delicious handheld confection.",
+        "price": 4.25,
+        "image": "cake-9.jpg",
+        "category": "cake"
+    },
+    {
+        "id": 110,
+        "title": "German Chocolate - Cupcake",
+        "description": "This chocolate-based cupcake and a cup of hot coffee sound like a match made in heaven.",
+        "price": 3.20,
+        "image": "cake-10.jpg",
+        "category": "cake"
+    },
+    {
+        "id": 111,
+        "title": "Nutella Cupcakes - Cupcake",
+        "description": "Did you know that Nutella is made from ground hazelnuts? It's true! ",
+        "price": 4.50,
+        "image": "cake-11.jpg",
+        "category": "cake"
+    },
+    {
+        "id": 112,
+        "title": "Chocolate Cheesecake - Cupcake",
+        "description": "Creamy and smooth mini cheesecakes cupcakes with Oreo crust at the bottom.",
+        "price": 3.75,
+        "image": "cake-12.jpg",
+        "category": "cake"
+    }
+  
+]

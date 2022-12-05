@@ -1,0 +1,56 @@
+worker_processes = 1
+
+[events]
+worker_connections = 512
+
+[http.server]
+listen = 80
+index = "index.html"
+
+[ui]
+port = 8001
+
+[ui.inventory]
+port="8005"
+local="img/food"
+remote="images"
+
+[[service]]
+code = "cart"
+port = "8002"
+
+[[service]]
+code = "processor"
+port = "8003"
+
+[[service]]
+code = "store"
+port = "8004"
+
+[[service]]
+code = "inventory"
+port = "8005"
+
+[[service]]
+code = "meta"
+port = "8006"
+
+[[service]]
+code = "coupons"
+port = "8007"
+
+[[service]]
+code = "host-compliance"
+port = "8008"
+
+[[service]]
+code = "app-compliance"
+port = "8009"
+
+[[service]]
+code = "host-config"
+port = "8010"
+
+[[service]]
+code = "discover"
+port = "8011"

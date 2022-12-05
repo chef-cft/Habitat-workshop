@@ -1,0 +1,113 @@
+@page
+
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="breadcrumb__text">
+                    <h2>Self Checkout</h2>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="breadcrumb__links">
+                    <a href="/">Home</a>
+                    <span>Self Checkout Kiosk</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row row-flex">
+        <div class="col-10">
+            <section class="food_section layout_padding">
+                <div id="inventory-loading">
+                    loading message
+                </div>
+                
+                <div id="inventory" style="display:none">
+                    <div id="filterMenu"></div>
+                    <div class="filters-content">
+                        <div class="row grid" id="itemCatalog">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-2">
+            <div style="position:fixed; top:0; z-index:100; display:none" id="cart-panel">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="checkout__order">
+                                <h6 class="order__title">Your order</h6>
+                                <div id="cart-details"></div>
+                                <button type="submit" id="review-order" class="site-btn">REVIEW ORDER</button>
+                                <button type="submit" id="clear-cart" class="site-btn" style="background-color: orange">CANCEL</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div style="height:40px"></div>
+ <script id="filterTemplate" type="text/x-jsrender">
+    <ul class="filters_menu">
+        <li class="active" data-filter="*">All</li>
+        {{for items}}
+            <li data-filter=".{{:tag}}">{{:name}}</li>
+        {{/for}}                        
+    </ul>
+</script>
+
+<script id="itemTemplate" type="text/x-jsrender">
+    {{for items}}
+        <div class="col-sm-6 col-lg-4 all {{:category}}">
+            <div class="box">
+            <div>
+                <div class="img-box">
+                <img src="img/food/{{:image}}" alt="">
+                </div>
+                <div class="detail-box">
+                <h5>{{:title}}</h5>
+                <p>{{:description}}</p>
+                <div class="options">
+                    <h6>${{:price}}</h6>
+                    <a href name productId="{{:id}}" class="addToCart"><i class="fa fa-shopping-cart" style="color:white" aria-hidden="true"></i></a>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    {{/for}}                        
+</script>
+
+<script id="cartTemplate" type="text/x-jsrender">
+    <div class="checkout__order__products">Product <span>Total</span></div>
+    <ul class="checkout__total__products">
+        {{for lines}}
+            <li><samp>{{:quantity}} x </samp> {{:title}} <span>$ {{:amount}}</span></li>
+        {{/for}}    
+    </ul>
+    <ul class="checkout__total__all">
+        <li>Subtotal <span>$ {{:subTotal}}</span></li>
+        {{if discount > 0}}
+        <li>{{:coupon}} <span>{{:discount * 100}}%</span></li>
+        <li>Discount <span>$ {{:discountTotal}}</span></li>
+        <li>Subtotal <span>$ {{:effectiveTotal}}</span></li>
+        {{/if}}
+        <li>Tax <span>$ {{:taxes}}</span> <small><samp>{{:rate}}</samp></small></li>
+        <li>Total <span>$ {{:total}}</span></li>
+    </ul>
+</script>
+
+
+<script id="emptyCartTemplate" type="text/x-jsrender">
+    <p>Your cart is empty</p>
+</script>

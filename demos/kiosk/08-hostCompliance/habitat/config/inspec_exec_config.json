@@ -1,0 +1,27 @@
+{
+  "reporter": {
+    "progress" : {
+      "stdout" : true
+    },
+    "json" : {
+      "file" : "{{pkg.svc_path}}/output/results.json",
+      "stdout" : false
+    },
+    "documentation" : {
+      "file" : "{{pkg.svc_path}}/output/results.txt",
+      "stdout" : false
+    },
+    "html" : {
+      "file" : "{{pkg.svc_path}}/output/simple.html",
+      "stdout" : false
+    },
+    "html2" : {
+      "file" : "{{pkg.svc_path}}/output/results.html",
+      "stdout" : false
+    },
+    "json-automate" : {
+      "file" : "{{pkg.svc_path}}/output/automate.json",
+      "stdout" : false
+    }
+  }
+}

@@ -1,0 +1,21 @@
+interval=63
+port=8009
+
+[chef_license]
+acceptance="accept-no-persist"
+
+[compliance]
+insecure=true
+
+[waivers]
+[waivers.xccdf_org.cisecurity.benchmarks_rule_1.1.1.1_Ensure_mounting_of_cramfs_filesystems_is_disabled]
+run="false"
+expiration_date="2023-01-01"
+justification="this control is not enforced"
+
+[automate]
+enable=true
+server_url="https://172.31.54.5"               
+token="E2bCL2WgfBqyo_lw8M-2OWm8WT0="
+node_uuid="11111111-1111-1111-1111-111111111111"
+environment="host"

@@ -1,0 +1,75 @@
+[
+    {
+        "id": 301,
+        "title": "Grilled Chicken Sandwich",
+        "description": "Marinated chicken breasts are grilled to tender perfection and topped with a quick honey mustard sauce and garden-fresh toppings",
+        "price": 3.25,
+        "image": "chicken-1.png",
+        "category": "chicken"
+    },
+    {
+        "id": 302,
+        "title": "Fried Chicken Sandwich",
+        "description": "This fried chicken sandwich is ultra crispy on the outside, tender & juicy on the inside and bursting with flavour all over!",
+        "price": 3.25,
+        "image": "chicken-2.png",
+        "category": "chicken"
+    },
+    {
+        "id": 401,
+        "title": "Rotini Fiorentina",
+        "description": "A comforting pasta dish with an incredibly flavorful creamy tomato sauce and lots of mozzarella.",
+        "price": 3.25,
+        "image": "pasta-1.png",
+        "category": "pasta"
+    }, 
+    {
+        "id": 402,
+        "title": "Mediterranean Pasta Salad",
+        "description": "This fresh pasta is tossed in a tangy vinaigrette & filled with veggies.",
+        "price": 3.25,
+        "image": "pasta-2.png",
+        "category": "pasta sides"
+    },
+    {
+        "id": 501,
+        "title": "BBQ Chicken Pizza",
+        "description": "Sweet BBQ sauce, chopped chicken, red onions, a dash of cilantro, and tons of cheese.",
+        "price": 3.25,
+        "image": "pizza-1.png",
+        "category": "pizza"
+    },
+    {
+        "id": 502,
+        "title": "Personal Pizza",
+        "description": "Building your own pizzas and tailor it fit your, dietary need, taste preference etc.",
+        "price": 3.25,
+        "image": "pizza-2.png",
+        "category": "pizza"
+    },
+    {
+        "id": 503,
+        "title": "Vegan/Gluteen Free Mediterranean Pizza",
+        "description": "Made with spinach, black olives, artichokes, red onion, and crumbled feta, this pizza is full of flavor. Vegetarian, gluteen free and purely delicious",
+        "price": 3.25,
+        "image": "pizza-3.png",
+        "category": "pizza"
+    },
+    {
+        "id": 601,
+        "title": "All American Cheese Burger",
+        "description": "American cheese with lettuce, tomato, onions, pickles, catsup, mayonaise and a free 1/2 pound ground chuck patty",
+        "price": 3.25,
+        "image": "burger-1.png",
+        "category": "burger"
+    },
+    {
+        "id": 902,
+        "title": "Dutch French Fries",
+        "description": "These are not your typical fries, they are broad, strong, and a little chunky.",
+        "price": 3.25,
+        "image": "fries-1.png",
+        "category": "fries sides"
+    }
+
+]

@@ -1,0 +1,9 @@
+---
+name: app-compliance
+title: Check Local app compliance
+summary: Local Compliance Chef
+version: 1.0.0
+maintainer: Chef Software, Inc.
+copyright: Chef Software, Inc.
+copyright_email: support@chef.io
+license: Proprietary, All rights reserved

@@ -1,0 +1,42 @@
+{
+  "revision_id": "df03575e70f4a38967cecdd1a49ed2af5e8946e593c3fd3a0e3c034f05ec7106",
+  "name": "sample",
+  "run_list": [
+    "recipe[chef-example::default]"
+  ],
+  "included_policy_locks": [
+
+  ],
+  "cookbook_locks": {
+    "chef-example": {
+      "version": "1.0.0",
+      "identifier": "8c06117c3b705467d8e24a7631490991d8d6c97b",
+      "dotted_decimal_identifier": "39413168907972692.29230389024665929.10522012862843",
+      "source": "../cookbooks/chef-example",
+      "cache_key": null,
+      "scm_info": null,
+      "source_options": {
+        "path": "../cookbooks/chef-example"
+      }
+    }
+  },
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "solution_dependencies": {
+    "Policyfile": [
+      [
+        "chef-example",
+        "= 1.0.0"
+      ]
+    ],
+    "dependencies": {
+      "chef-example (1.0.0)": [
+
+      ]
+    }
+  }
+}

@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Cake Template">
+    <meta name="keywords" content="Cake, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Progress Chef Edge Management | Kiosk Demo</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="~/css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="~/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/style.css" type="text/css">
+    <link rel="stylesheet" href="~/css/jsonview.css" type="text/css">
+    <link rel="stylesheet" href="~//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" type="text/css">
+
+    <script>
+        POLL_STATUS_ENABLE = true;
+        POLL_VERSION_ENABLE = true;
+        POLL_STORE_ENABLE = true;
+        POLL_TRANS_ENABLE = false;
+
+        _InventoryApiEndPoint = "/services/inventory"
+        _InventoryImages = "/img/food"
+        _CartApiEndPoint = "/services/cart"
+        _MetaApiEndPoint = "/services/meta"
+        _StoreApiEndPoint = "/services/store/"
+        _HostComplianceApiEndPoint = "/services/host-compliance/"
+        _AppComplianceApiEndPoint = "/services/app-compliance/"
+        _HostConfigApiEndPoint = "/services/host-config/"
+        _DiscoverApiEndPoint = "/services/discover/"
+        _ProcessorApiEndPoint = "/services/processor/"
+    </script>    
+</head>
+
+<body style="@ViewData["PageStyle"]">
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <div id="transaction-indicator" style="position:fixed; top:0; left:0; z-index:500; display:none;">
+        <div style="background-color: red; padding: 10px">
+            <h6 style="color: white;">transaction active</h6>
+        </div>
+    </div>
+
+    <!-- Header Section End -->
+    @RenderBody()
+    <!-- Footer Section Begin -->
+
+    <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Store Configuration</h6>
+                        <ul>
+                            <li>Store ID: <span id="store-id-val"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                            <li>Catalog: <span id="store-catalog-val"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                            <li>Tax Rate: <span id="store-tax-val"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                            <li>Discounts: <span id="store-disc-val"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                        </ul>
+                        <hr />
+                        <ul>
+                            <li>Store Configuration: <span id="svc-store-ver"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                        </ul>
+                    </div>
+                </div>                
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <h6>Application Service(s)</h6>
+                        <ul>
+                            <li>Proxy: <span id="svc-proxy-ver"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                            <li>Kiosk UI: <span id="svc-ui-ver"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                            <li>Ordering "Cart": <span id="svc-cart-ver"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                            <li>Inventory Catalog: <span id="svc-inv-ver"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                            <li>Kitchen Processor: <span id="svc-processor-ver"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                            <li>Coupon Data: <span id="svc-coupon-ver"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__newslatter">
+                        <h6>Supporting Service(s)</h6>
+                        <ul>
+                            <li>Meta Data: <span id="svc-meta-ver"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                            <li>Host Compliance: <span id="svc-host-ver"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                            <li>App Compliance: <span id="svc-app-ver"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                            <li>Host Configuration: <span id="svc-config-ver"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                            <li>Discovery: <span id="svc-discover-ver"><i class="fa fa-spinner" aria-hidden="true"></i></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <p class="copyright__text text-white">
+                          Progress Chef Edge Management Demo <br/>
+                          Self Service Ordering Kiosk
+                      </p>
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="copyright__widget">
+                        <ul>
+                            <li><a href="/About">About</a></li>
+                            <li><a href="/Processor">Orders</a></li>
+                            <li><a href="/Node">Node</a></li>
+                            <li><a href="/Ring">Ring</a></li>
+                            <li><a href="/Settings">Store</a></li>
+                            <li><a href="/Compliance">Compliance</a></li>
+                            <li><a href="/Config">Configuration</a></li>
+                            <li><a href="/Discover">Discover</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+<!-- Footer Section End -->
+
+
+    <!-- Js Plugins -->
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.nice-select.min.js"></script>
+    <script src="~/js/jquery.barfiller.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.nicescroll.min.js"></script>
+    <script src="~/js/jsonview.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/1.0.11/jsrender.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+    <script src="~/js/settings.js" asp-append-version="true"></script>
+    <script src="~/js/ui.js" asp-append-version="true"></script>
+    <script src="~/js/node.js" asp-append-version="true"></script>
+    <script src="~/js/shop.js" asp-append-version="true"></script>
+    <script src="~/js/ring.js" asp-append-version="true"></script>
+    <script src="~/js/about.js" asp-append-version="true"></script>
+    <script src="~/js/compliance.js" asp-append-version="true"></script>
+    <script src="~/js/config.js" asp-append-version="true"></script>
+    <script src="~/js/discover.js" asp-append-version="true"></script>
+    <script src="~/js/processor.js" asp-append-version="true"></script>
+</body>
+
+</html>

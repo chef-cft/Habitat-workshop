@@ -1,0 +1,12 @@
+name                'chef-example'
+license             'Apache-2.0'
+description         'This is an example node configuration.'
+version             '1.0.0'
+maintainer          'Chef Training'
+maintainer_email    'training@chef.io'
+license             'All Rights Reserved'
+version             '1.0.0'
+chef_version        '>= 14.0'
+
+recipe  'chef-example::default',    'runs all the recipies'
+recipe  'chef-example::file',       'install the file'

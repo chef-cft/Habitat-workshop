@@ -1,0 +1,8 @@
+{
+    "codes":[
+        {"code": "new year", "amount": 0.15 },
+        {"code": "christmas", "amount": 0.24 },
+        {"code": "easter", "amount": 0.11 },
+        {"code": "labour", "amount": 0.80 }
+    ]
+}

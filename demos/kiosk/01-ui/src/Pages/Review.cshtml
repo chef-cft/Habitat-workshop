@@ -1,0 +1,111 @@
+@page
+
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="breadcrumb__links">
+                    <a href="/">Home</a>
+                    <span>Self Checkout Kiosk</span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="breadcrumb__text">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="shopping-cart spad" id="review-order-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="shopping__cart__table" id="order-details">
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="continue__btn">
+                            <a href="#" id="clear-cart" style="background-color: orange">Cancel Order</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="continue__btn update__btn">
+                            <a href="/Shop"><i class="fa fa-spinner"></i> Add More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4">
+                <div class="cart__discount">
+                    <h6>Discount codes</h6>
+                    <form action="#" id="formApplyDiscount">
+                        <input id="txtCouponCode" type="text" placeholder="Coupon code">
+                        <button type="submit">Apply</button>
+                    </form>
+                </div>
+                <div class="cart__total">
+                    <div id="order-total"></div>
+                    <a href="#" id="btnCheckOut" class="primary-btn">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div style="height:40px"></div>
+
+
+ <script id="cartTotalTemplate" type="text/x-jsrender">
+    <h6>Cart total</h6>
+    <ul>
+        <li>Subtotal <span>$ {{:subTotal}}</span></li>
+        {{if discount > 0}}
+        <li>{{:coupon}} <span>{{:discount * 100}}%</span></li>
+        <li>Discount <span>$ {{:discountTotal}}</span></li>
+        <li>Subtotal <span>$ {{:effectiveTotal}}</span></li>
+        {{/if}}
+        <li>Tax <span>$ {{:taxes}}</span> <small><samp>{{:rate}}</samp></small></li>
+        <li>Total <span>$ {{:total}}</span></li>
+    </ul>
+</script>
+
+<script id="cartReviewTemplate" type="text/x-jsrender">
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th style="text-align:right">Price</th>
+                <th style="text-align:center">Quantity</th>
+                <th style="text-align:left">Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>                         
+            {{for lines}}
+                <tr>
+                    <td class="product__cart__item">
+                        <div class="product__cart__item__pic">
+                            <img src="img/food/{{:image}}" style="max-width:100px; max-height:100px" alt="">
+                        </div>
+                        <div class="product__cart__item__text">
+                            <h6>{{:title}}</h6>
+                            <h5>${{:price}}</h5>
+                        </div>
+                    </td>
+                    <td style="text-align:right" class="cart__price">$ {{:price}}</td>
+                    <td style="text-align:center" class="quantity__item">
+                        <div class="quantity">
+                            <span>{{:quantity}}
+                        </div>
+                    </td>
+                    <td style="text-align:left" class="cart__price">$ {{:amount}}</td>
+                    <td class="cart__close"><a href productId="{{:id}}" class="removeFromCart"><span class="icon_close"></a></span></td>
+                </tr>
+            {{/for}}         
+        </tbody>
+    </table>                      
+</script>

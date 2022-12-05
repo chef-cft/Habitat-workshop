@@ -1,0 +1,5 @@
+cp -ar "{{pkg.path}}/.chef" "{{pkg.svc_var_path}}"
+cp -ar "{{pkg.path}}/policies" "{{pkg.svc_var_path}}"
+cp -ar "{{pkg.path}}/policy_groups" "{{pkg.svc_var_path}}"
+cp -ar "{{pkg.path}}/cookbook_artifacts" "{{pkg.svc_var_path}}"
+cp "{{pkg.path}}/Policyfile.lock.json" "{{pkg.svc_var_path}}"

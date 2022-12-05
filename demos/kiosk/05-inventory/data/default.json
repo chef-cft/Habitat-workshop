@@ -1,0 +1,66 @@
+[
+    {
+        "id": 301,
+        "title": "Grilled Chicken Sandwich",
+        "description": "Marinated chicken breasts are grilled to tender perfection and topped with a quick honey mustard sauce and garden-fresh toppings",
+        "price": 3.25,
+        "image": "chicken-1.png",
+        "category": "chicken"
+    },
+    {
+        "id": 302,
+        "title": "Fried Chicken Sandwich",
+        "description": "This fried chicken sandwich is ultra crispy on the outside, tender & juicy on the inside and bursting with flavour all over!",
+        "price": 3.25,
+        "image": "chicken-2.png",
+        "category": "chicken"
+    },
+    {
+        "id": 501,
+        "title": "BBQ Chicken Pizza",
+        "description": "Sweet BBQ sauce, chopped chicken, red onions, a dash of cilantro, and tons of cheese.",
+        "price": 3.25,
+        "image": "pizza-1.png",
+        "category": "pizza"
+    },
+    {
+        "id": 502,
+        "title": "Personal Pizza",
+        "description": "Building your own pizzas and tailor it fit your, dietary need, taste preference etc.",
+        "price": 3.25,
+        "image": "pizza-2.png",
+        "category": "pizza"
+    },
+    {
+        "id": 601,
+        "title": "All American Cheese Burger",
+        "description": "American cheese with lettuce, tomato, onions, pickles, catsup, mayonaise and a free 1/2 pound ground chuck patty",
+        "price": 3.25,
+        "image": "burger-1.png",
+        "category": "burger"
+    },
+    {
+        "id": 902,
+        "title": "Dutch French Fries",
+        "description": "These are not your typical fries, they are broad, strong, and a little chunky.",
+        "price": 3.25,
+        "image": "fries-1.png",
+        "category": "fries sides"
+    },
+    {
+        "id": 100,
+        "title": "Pumpkin Spice - Cupcake",
+        "description": "These hearty pumpkin cupcakes are topped with a cinnamon cream cheese frosting. Delicious in the fall for a tasty treat.",
+        "price": 3.25,
+        "image": "cake-1.jpg",
+        "category": "cake"
+    },
+    {
+        "id": 102,
+        "title": "Cookies and Cream - Cupcake",
+        "description": "These Oreo cupcakes will melt in your mouth and that cookies and cream frosting on top is nearly too good too be true.",
+        "price": 3.25,
+        "image": "cake-2.jpg",
+        "category": "cake"
+    }
+]
