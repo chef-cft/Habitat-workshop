@@ -1,14 +1,18 @@
 @page
+@{
+    ViewData["Title"] = "Home page";
+    ViewData["PageStyle"] = "background: rgba(0,255,0,0.15);";
+}
 
 <div class="breadcrumb-option">
     <div class="container">
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-6">
                 <div class="breadcrumb__text">
                     <h2>Self Checkout</h2>
                 </div>
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-6">
                 <div class="breadcrumb__links">
                     <a href="/">Home</a>
                     <span>Self Checkout Kiosk</span>
@@ -20,8 +24,9 @@
 
 
 <div class="container">
-    <div class="row row-flex">
+    <div class="row">
         <div class="col-10">
+
             <section class="food_section layout_padding">
                 <div id="inventory-loading">
                     loading message
@@ -38,7 +43,7 @@
         </div>
 
         <div class="col-2">
-            <div style="position:fixed; top:0; z-index:100; display:none" id="cart-panel">
+            <div style="position:fixed; top:150; z-index:100; display:none" id="cart-panel">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">

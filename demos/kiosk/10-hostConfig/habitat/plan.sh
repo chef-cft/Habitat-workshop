@@ -3,8 +3,8 @@ pkg_name="kiosk_hostConfig"
 pkg_version=1.0.0
 pkg_svc_user=root
 pkg_svc_group=root
-pkg_build_deps=(chef/scaffolding-chef-infra core/go)
-pkg_deps=(chef/chef-infra-client)
+pkg_build_deps=(chef/scaffolding-chef-infra/0.25.0/20220823082225 core/go)
+pkg_deps=(chef/chef-infra-client/17.10.3/20220823074032)
 
 scaffold_policy_name="sample"
 scaffold_policyfile_path="$PLAN_CONTEXT/../policyfiles"

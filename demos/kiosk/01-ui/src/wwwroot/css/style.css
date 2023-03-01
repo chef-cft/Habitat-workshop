@@ -1134,7 +1134,16 @@ ol {
 .footer__widget ul li {
   list-style: none;
   font-size: 14px;
-  color: #a4a4a4;
+  color: #ffffff;
+  font-weight: bold;
+  line-height: 36px;
+}
+
+.footer__widget ul li:hover {
+  list-style: none;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: bold;
   line-height: 36px;
 }
 
@@ -1178,13 +1187,25 @@ ol {
 .footer__about .footer__social a:last-child {
   margin-right: 0;
 }
+
 .footer__about ul li {
   text-align: left;
   list-style: none;
   font-size: 14px;
-  color: #a4a4a4;
+  color: #ffffff;
+  font-weight: bold;
   line-height: 36px;
 }
+
+.footer__about ul li:hover {
+  text-align: left;
+  list-style: none;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: bold;
+  line-height: 36px;
+}
+
 .footer__about h6 {
   text-align: left;
   color: #ffffff;
@@ -1249,13 +1270,25 @@ ol {
   padding: 0 20px;
 }
 
+
 .footer__newslatter ul li {
   text-align: left;
   list-style: none;
   font-size: 14px;
-  color: #a4a4a4;
+  color: #ffffff;
+  font-weight: bold;
   line-height: 36px;
 }
+
+.footer__newslatter ul li:hover {
+  text-align: left;
+  list-style: none;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: bold;
+  line-height: 36px;
+}
+
 
 .copyright {
   background: #000000;
