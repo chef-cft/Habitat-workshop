@@ -6,7 +6,7 @@ then
     exit -1
 fi
 
-sudo cp ./certs/* /hab/cache/ssl/
+cp ./certs/* /hab/cache/ssl/
 
 find . -type f -iname "*.sh" -exec chmod +x {} \;
 
@@ -14,6 +14,8 @@ find . -type f -iname "*.sh" -exec chmod +x {} \;
 hab origin key download workshop
 hab origin key generate workshop
 hab origin key download chef
+hab origin key download kiosk
+hab origin key generate kiosk
 
 ./build-cache.sh
 
