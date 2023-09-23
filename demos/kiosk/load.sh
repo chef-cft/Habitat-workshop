@@ -1,5 +1,5 @@
 #!/bin/bash
-export HAB_ORIGIN="kiosk"
+#export HAB_ORIGIN="kiosk"
 
 cd 00-proxy
 hab svc load $HAB_ORIGIN/kiosk_proxy --strategy at-once --update-condition latest -f

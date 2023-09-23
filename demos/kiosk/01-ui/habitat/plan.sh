@@ -1,6 +1,6 @@
 pkg_origin="kiosk"
 pkg_name="kiosk_ui"
-pkg_version="2.0.0"
+pkg_version="1.0.0"
 pkg_svc_user="root"
 pkg_svc_group="root"
 pkg_deps=(
