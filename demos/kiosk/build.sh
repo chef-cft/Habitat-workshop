@@ -1,5 +1,5 @@
 #!/bin/bash
-#export HAB_ORIGIN="kiosk"
+export HAB_ORIGIN="kiosk"
 
 cd 00-proxy
 build

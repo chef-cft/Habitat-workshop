@@ -14,6 +14,14 @@ cd workshop
 ./build-all.sh
 cd ..
 
+
+cd demos
+cd kiosk
+./build-all.sh
+cd ..
+cd ..
+
+
 ./purge.sh
 
 exit

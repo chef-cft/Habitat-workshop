@@ -14,6 +14,7 @@ find . -type f -iname "*.sh" -exec chmod +x {} \;
 hab origin key download workshop
 hab origin key generate workshop
 hab origin key download chef
+hab origin create kiosk
 hab origin key download kiosk
 hab origin key generate kiosk
 
@@ -25,7 +26,7 @@ cd ..
 
 cd shim
 ./build-all.sh
-#./publish-all.sh
+./publish-all.sh
 cd ..
 
 cd workshop
@@ -41,5 +42,8 @@ build
 cd ..
 
 cd ..
+
+cd servers
+./load.sh
 
 exit
